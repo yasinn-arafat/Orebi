@@ -32,7 +32,7 @@ const Banner = () => {
         style={{
           width: "30px",
           color: "var(--main-font-color)",
-          borderRight: "2px solid var(--main-font-color)",
+          borderRight: "2px solid var(--main-bg-color)",
           fontSize: "12px",
           padding: "10px 0",
         }}
