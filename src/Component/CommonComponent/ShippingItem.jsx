@@ -3,7 +3,7 @@ import React from "react";
 const ShippingItem = ({ className, children }) => {
   return (
     <>
-      <div>{children}</div>
+      <div className={className}>{children}</div>
     </>
   );
 };
