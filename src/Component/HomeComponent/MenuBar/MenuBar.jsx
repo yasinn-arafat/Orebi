@@ -1,6 +1,6 @@
 import React from "react";
-import Flex from "../CommonComponent/Flex";
-import Search from "../CommonComponent/Search";
+import Flex from "../../CommonComponent/Flex";
+import Search from "../../CommonComponent/Search";
 import { HiMiniBars3BottomLeft } from "react-icons/hi2";
 import { FaUser, FaCaretDown, FaShoppingCart } from "react-icons/fa";
 

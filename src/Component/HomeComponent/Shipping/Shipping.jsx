@@ -1,5 +1,5 @@
 import React from "react";
-import ShippingItem from "../CommonComponent/ShippingItem";
+import ShippingItem from "../../CommonComponent/ShippingItem";
 import { PiNumberTwoBold } from "react-icons/pi";
 import { IoReload } from "react-icons/io5";
 import { FaTruck } from "react-icons/fa";

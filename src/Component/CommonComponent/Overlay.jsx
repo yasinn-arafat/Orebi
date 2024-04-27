@@ -19,7 +19,7 @@ const Overlay = ({
           className={
             titleStyle
               ? titleStyle
-              : "text-[39px] text-main-font-color font-DMsans font-bold"
+              : "text-4xl text-main-font-color font-DMsans font-bold"
           }
         >
           {title ? title : "Phones Sale"}
@@ -55,7 +55,7 @@ const Overlay = ({
         </div>
         <Button
           className={
-            "block px-14 py-4 bg-main-font-color text-main-bg-color text-sm font-DMsans font-bold"
+            "block px-14 py-4 bg-main-font-color text-main-bg-color text-sm font-DMsans font-bold hover:translate-x-2 hover:ease-linear duration-200 "
           }
           title={"Shop Now"}
         />

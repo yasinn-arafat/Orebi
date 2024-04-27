@@ -1,8 +1,7 @@
 import React from "react";
 import "slick-carousel/slick/slick.css";
-
 import Slider from "react-slick";
-import BannersliderImg from "../../assets/Bannerslider.png";
+import BannersliderImg from "../../../assets/Bannerslider.png";
 
 const Banner = () => {
   var settings = {
