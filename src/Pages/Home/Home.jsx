@@ -4,6 +4,7 @@ import MenuBar from "../../Component/HomeComponent/MenuBar/MenuBar";
 import Banner from "../../Component/HomeComponent/Banner/Banner";
 import Shipping from "../../Component/HomeComponent/Shipping/Shipping";
 import SaleInfo from "../../Component/HomeComponent/SaleInfo/SaleInfo";
+import NewArival from "../../Component/HomeComponent/NewArival/NewArival";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Banner />
       <Shipping />
       <SaleInfo />
+      <NewArival />
     </>
   );
 };
