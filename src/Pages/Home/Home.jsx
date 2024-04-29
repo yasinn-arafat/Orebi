@@ -5,6 +5,7 @@ import Banner from "../../Component/HomeComponent/Banner/Banner";
 import Shipping from "../../Component/HomeComponent/Shipping/Shipping";
 import SaleInfo from "../../Component/HomeComponent/SaleInfo/SaleInfo";
 import NewArival from "../../Component/HomeComponent/NewArival/NewArival";
+import { NewProductData } from "/Data/Data.js";
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
       <Banner />
       <Shipping />
       <SaleInfo />
-      <NewArival />
+      <NewArival heading={"New Arrivals"} ProductData={NewProductData} />
     </>
   );
 };

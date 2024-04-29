@@ -11,6 +11,10 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    autoplay: true,
+    speed: 1100,
+    autoplaySpeed: 2000,
+
     appendDots: (dots) => (
       <div
         style={{

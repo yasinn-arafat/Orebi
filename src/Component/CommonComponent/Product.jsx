@@ -1,13 +1,15 @@
 import React from "react";
-import NeckImg from "../../assets/Image1.png";
-import WatchImg from "../../assets/Image2.png";
-import BasketImg from "../../assets/Image3.png";
-import RabitImg from "../../assets/Image4.png";
 import Flex from "../CommonComponent/Flex";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { FaArrowsRotate } from "react-icons/fa6";
 
-const Product = ({ colorVarient, badge }) => {
+const Product = ({
+  colorVarient,
+  badge,
+  image,
+  producttitle,
+  productPrice,
+}) => {
   return (
     <>
       <div>
@@ -15,7 +17,7 @@ const Product = ({ colorVarient, badge }) => {
           <div className="relative overflow-hidden group">
             <div className="absolute top-5 left-5">{badge}</div>
             <picture>
-              <img src={WatchImg} alt={NeckImg} />
+              <img src={image} alt={image} />
             </picture>
 
             {/* -------- Overlay ------ */}
@@ -52,10 +54,10 @@ const Product = ({ colorVarient, badge }) => {
           <div className="pt-6">
             <Flex className={"justify-between"}>
               <h4 className="text-main-font-color text-[18px] font-DMsans font-bold">
-                Basic Crew Neck Tee
+                {producttitle ? producttitle : "  Basic Crew Neck Tee"}
               </h4>
               <p className="text-tertiary-font-color text-base font-DMsans font-normal">
-                $44.00
+                {productPrice ? productPrice : " $44.00"}
               </p>
             </Flex>
           </div>
