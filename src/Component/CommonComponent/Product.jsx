@@ -17,7 +17,7 @@ const Product = ({
           <div className="relative overflow-hidden group">
             <div className="absolute top-5 left-5">{badge}</div>
             <picture>
-              <img src={image} alt={image} />
+              <img src={image} alt={image} className="cursor-pointer" />
             </picture>
 
             {/* -------- Overlay ------ */}
