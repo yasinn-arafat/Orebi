@@ -10,6 +10,13 @@ import BestSellingImg2 from "../src/assets/BestSellingProduct/Image6.png";
 import BestSellingImg3 from "../src/assets/BestSellingProduct/Image7.png";
 import BestSellingImg4 from "../src/assets/BestSellingProduct/Image8.png";
 
+// Best Selling Product Image
+
+import SpecialProductImg1 from "../src/assets/SpecialProduct/SpecialProduct1.png";
+import SpecialProductImg2 from "../src/assets/SpecialProduct/SpecialProduct2.png";
+import SpecialProductImg3 from "../src/assets/SpecialProduct/SpecialProduct3.png";
+import SpecialProductImg4 from "../src/assets/SpecialProduct/SpecialProduct4.png";
+
 // New Available Product Data
 
 export const NewProductData = [
@@ -176,6 +183,91 @@ export const BestSellingData = [
     color: false,
     badge: true,
     img: Img1,
+    badgetitle: false,
+    discountOffer: "10%",
+  },
+];
+
+// Special Offers Product Data
+
+export const SpecialProductData = [
+  {
+    id: 1,
+    title: "Basic Crew Neck Tee",
+    price: "$14.00",
+    color: true,
+    badge: true,
+    img: SpecialProductImg1,
+    badgetitle: true,
+    discountOffer: "10%",
+  },
+  {
+    id: 2,
+    title: "Basic Crew Neck Tee",
+    price: "$25.50",
+    color: true,
+    badge: true,
+    img: SpecialProductImg2,
+    badgetitle: false,
+    discountOffer: "13%",
+  },
+  {
+    id: 3,
+    title: "Basic Crew Neck Tee",
+    price: "$15.00",
+    color: false,
+    badge: true,
+    img: SpecialProductImg3,
+    badgetitle: true,
+    discountOffer: "20%",
+  },
+  {
+    id: 4,
+    title: "Basic Crew Neck Tee",
+    price: "$33.70",
+    color: true,
+    badge: true,
+    img: SpecialProductImg4,
+    badgetitle: false,
+    discountOffer: "20%",
+  },
+  {
+    id: 5,
+    title: "Basic Crew Neck Tee",
+    price: "$56.50",
+    color: true,
+    badge: true,
+    img: Img2,
+    badgetitle: true,
+    discountOffer: "15%",
+  },
+  {
+    id: 6,
+    title: "Basic Crew Neck Tee",
+    price: "$20.30",
+    color: false,
+    badge: true,
+    img: BestSellingImg3,
+    badgetitle: false,
+    discountOffer: "20%",
+  },
+  {
+    id: 7,
+    title: "Basic Crew Neck Tee",
+    price: "$37.50",
+    color: true,
+    badge: true,
+    img: Img4,
+    badgetitle: true,
+    discountOffer: "10%",
+  },
+  {
+    id: 8,
+    title: "Basic Crew Neck Tee",
+    price: "$44.00",
+    color: false,
+    badge: true,
+    img: BestSellingImg1,
     badgetitle: false,
     discountOffer: "10%",
   },
