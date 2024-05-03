@@ -6,6 +6,7 @@ import Shipping from "../../Component/HomeComponent/Shipping/Shipping";
 import SaleInfo from "../../Component/HomeComponent/SaleInfo/SaleInfo";
 import NewArival from "../../Component/HomeComponent/NewArival/NewArival";
 import PhoneOfTheYear from "../../Component/HomeComponent/PhoneOfTheYear/PhoneOfTheYear";
+import Footer from "../../Component/CommonComponent/Footer/Footer";
 import {
   NewProductData,
   BestSellingData,
@@ -24,6 +25,7 @@ const Home = () => {
       <NewArival heading={"Our Bestsellers"} ProductData={BestSellingData} />
       <PhoneOfTheYear />
       <NewArival heading={"Special Offers"} ProductData={SpecialProductData} />
+      <Footer />
     </>
   );
 };
