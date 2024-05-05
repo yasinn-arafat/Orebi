@@ -1,6 +1,7 @@
 import React from "react";
 import FooterLogo from "../../../assets/FooterLogo.png";
 import FooterTop from "./FooterTop";
+import FooterBottom from "./FooterBottom";
 
 const Footer = () => {
   return (
@@ -59,6 +60,8 @@ const Footer = () => {
               </picture>
             </div>
           </div>
+
+          <FooterBottom />
         </div>
       </div>
     </>
