@@ -7,7 +7,7 @@ import { FaTruck } from "react-icons/fa";
 const Shipping = () => {
   return (
     <>
-      <div className="py-8 border-b-2 border-[#F0F0F0]">
+      <div className="border-b-2 border-[#F0F0F0] py-8">
         <div className="container">
           <div className="flex items-center justify-between">
             <ShippingItem
@@ -16,7 +16,7 @@ const Shipping = () => {
               <span className="text-3xl">
                 <PiNumberTwoBold />
               </span>
-              <p className="text-base font-DMsans font-normal text-secondery-font-color">
+              <p className="font-DMsans text-base font-normal text-secondery-font-color">
                 Two years warranty
               </p>
             </ShippingItem>
@@ -27,7 +27,7 @@ const Shipping = () => {
               <span className="text-3xl">
                 <FaTruck />
               </span>
-              <p className="text-base font-DMsans font-normal text-secondery-font-color">
+              <p className="font-DMsans text-base font-normal text-secondery-font-color">
                 Free shipping
               </p>
             </ShippingItem>
@@ -38,7 +38,7 @@ const Shipping = () => {
               <span className="text-3xl">
                 <IoReload />
               </span>
-              <p className="text-base font-DMsans font-normal text-secondery-font-color">
+              <p className="font-DMsans text-base font-normal text-secondery-font-color">
                 Return policy in 30 days
               </p>
             </ShippingItem>

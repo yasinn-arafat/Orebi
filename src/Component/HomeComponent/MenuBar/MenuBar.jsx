@@ -12,7 +12,7 @@ const MenuBar = () => {
           <Flex className={"justify-between"}>
             <Flex className={"gap-x-3"}>
               <HiMiniBars3BottomLeft className="text-2xl" />
-              <p className=" text-main-font-color text-sm font-DMsans font-normal">
+              <p className=" font-DMsans text-sm font-normal text-main-font-color">
                 Shop by Category
               </p>
             </Flex>

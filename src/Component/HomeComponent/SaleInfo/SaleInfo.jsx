@@ -7,15 +7,15 @@ import Overlay from "../../CommonComponent/Overlay";
 const SaleInfo = () => {
   return (
     <>
-      <div className="pt-36 pb-32">
+      <div className="pb-32 pt-36">
         <div className="container">
           <div className="flex gap-x-7">
-            <div className="w-full relative">
+            <div className="relative w-full">
               <picture>
                 <img src={SaleLeft} alt={SaleLeft} />
               </picture>
               <Overlay
-                className={"absolute left-16 bottom-10 "}
+                className={"absolute bottom-10 left-16 "}
                 titleStyle={
                   "text-4xl text-main-font-color font-DMsans font-bold"
                 }
@@ -33,12 +33,12 @@ const SaleInfo = () => {
             </div>
             <div className="w-full">
               <div className="flex flex-col gap-y-8">
-                <div className="w-full relative">
+                <div className="relative w-full">
                   <picture>
                     <img src={SaleRightUp} alt={SaleRightUp} />
                   </picture>
                   <Overlay
-                    className={"absolute left-9 bottom-10 "}
+                    className={"absolute bottom-10 left-9 "}
                     titleStyle={
                       "text-4xl text-main-font-color font-DMsans font-bold"
                     }
@@ -54,12 +54,12 @@ const SaleInfo = () => {
                     sale={"sale for all electronics!"}
                   />
                 </div>
-                <div className="w-full relative">
+                <div className="relative w-full">
                   <picture>
                     <img src={SaleRightDown} alt={SaleRightDown} />
                   </picture>
                   <Overlay
-                    className={"absolute left-9 bottom-10 "}
+                    className={"absolute bottom-10 left-9 "}
                     titleStyle={
                       "text-4xl text-main-font-color font-DMsans font-bold"
                     }

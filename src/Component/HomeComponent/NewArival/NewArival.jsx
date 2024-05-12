@@ -26,7 +26,7 @@ function SampleNextArrow(props) {
       }}
       onClick={onClick}
     >
-      <div className="flex items-center justify-center h-full">
+      <div className="flex h-full items-center justify-center">
         <FaLongArrowAltRight />
       </div>
     </div>
@@ -56,7 +56,7 @@ function SamplePrevArrow(props) {
       }}
       onClick={onClick}
     >
-      <div className="flex items-center justify-center h-full">
+      <div className="flex h-full items-center justify-center">
         <FaLongArrowAltLeft />
       </div>
     </div>
@@ -80,7 +80,7 @@ const NewArival = ({ heading, ProductData }) => {
     <>
       <div className="pb-28">
         <div className="container">
-          <h3 className="text-[39px] text-main-font-color font-DMsans font-bold pb-12">
+          <h3 className="pb-12 font-DMsans text-[39px] font-bold text-main-font-color">
             {heading ? heading : "New Arrivals"}
           </h3>
 
@@ -96,7 +96,7 @@ const NewArival = ({ heading, ProductData }) => {
                     item.badge == true ? (
                       <Button
                         className={
-                          "py-[9px] px-8 bg-main-font-color text-main-bg-color text-sm font-DMsans font-bold"
+                          "bg-main-font-color px-8 py-[9px] font-DMsans text-sm font-bold text-main-bg-color"
                         }
                         title={
                           item.badgetitle == true ? "New" : item.discountOffer
