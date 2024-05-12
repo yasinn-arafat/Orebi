@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <>
-      <nav className="bg-main-bg-color px-4 py-8 md:px-3 ">
+      <nav className="bg-main-bg-color px-4 py-8 md:px-3 lg:px-4 ">
         <div className="container">
           <div className="flex items-center justify-between">
             <div>
@@ -44,7 +44,7 @@ const Header = () => {
               </ul>
             </div>
 
-            <div className="hidden sm:block"></div>
+            <div className="hidden md:block"></div>
 
             <div className="cursor-pointer sm:hidden" onClick={HandelNavICon}>
               {isShow === true ? <FaXmark /> : <FaBars />}

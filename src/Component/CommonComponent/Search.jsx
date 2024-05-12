@@ -10,9 +10,9 @@ const Search = ({ placeholder }) => {
           <input
             type="text"
             placeholder={placeholder}
-            className="w-[600px] py-5 pl-5 placeholder:text[#C4C4C4] placeholder:text-sm placeholder:font-DMsans placeholder:font-normal"
+            className="placeholder:text[#C4C4C4] max-w-[600px] rounded-lg py-3 pl-3 placeholder:font-DMsans placeholder:text-sm placeholder:font-normal sm:w-[400px] sm:pl-5 md:w-[600px] md:py-5"
           />
-          <div className="absolute top-1/2 right-0 -translate-y-2/4 pr-5 text-2xl">
+          <div className="absolute right-0 top-1/2 -translate-y-2/4 cursor-pointer pr-5 text-xl sm:text-2xl">
             <FaSearch />
           </div>
         </div>
