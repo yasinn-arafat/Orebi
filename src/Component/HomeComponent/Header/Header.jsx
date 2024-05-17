@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../../../assets/Logo.png";
 import { FaBars, FaXmark } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [isShow, setisShow] = useState(false);
@@ -29,19 +30,19 @@ const Header = () => {
                 className={`absolute flex flex-col items-center  gap-x-9 divide-y divide-[#4b4949] bg-main-font-color duration-200 ease-linear sm:static sm:flex-row sm:divide-y-0 sm:bg-transparent ${isShow ? "left-0 top-[64px] z-10 w-full text-center " : "left-[-100%] top-[64px] z-10  w-full text-center "}`}
               >
                 <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
-                  <a href="#">Home</a>
+                  <NavLink to={"/"}>Home</NavLink>
                 </li>
                 <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
-                  <a href="#">Shop</a>
+                  <NavLink to={"/"}>Shop</NavLink>
                 </li>
                 <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
-                  <a href="#">About</a>
+                  <NavLink to={"/"}>About</NavLink>
                 </li>
                 <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
-                  <a href="#">Contacts</a>
+                  <NavLink to={"/"}>Contacts</NavLink>
                 </li>
                 <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
-                  <a href="#">Journal</a>
+                  <NavLink to={"/"}>Journal</NavLink>
                 </li>
               </ul>
             </div>
