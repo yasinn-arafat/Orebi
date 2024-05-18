@@ -52,10 +52,7 @@ const MenuBar = () => {
 
   return (
     <>
-      <div
-        className="bg-red-500 bg-secondery-bg-colorr px-4 py-5"
-        ref={Menuref}
-      >
+      <div className="bg-secondery-bg-colorr px-4 py-5" ref={Menuref}>
         <div className="container">
           <Flex className={"justify-between"}>
             <Flex className={"gap-x-3"}>
@@ -65,30 +62,28 @@ const MenuBar = () => {
                 />
               </div>
 
-              {showCatagories && (
-                <ul
-                  className={`absolute z-10 w-full divide-y divide-[#4b4949] bg-main-font-color text-center duration-200 ease-linear sm:w-[263px] sm:text-start ${showCatagories ? "left-0 top-[135px] sm:left-[42px] sm:top-[140px] md:left-5 md:top-[158px] xl:left-[74px]" : "left-[-100%] top-[156px]"}`}
-                >
-                  <li className="menu_list w-full cursor-pointer py-4 pl-5 text-[#b3b3b3] duration-100 ease-linear hover:text-main-bg-color ">
-                    <Link to={"/"}>Accesories</Link>
-                  </li>
-                  <li className="menu_list w-full cursor-pointer py-4  pl-5 text-[#b3b3b3] duration-100 ease-linear hover:text-main-bg-color ">
-                    <Link to={"/"}>Furniture</Link>
-                  </li>
-                  <li className="menu_list w-full cursor-pointer py-4  pl-5 text-[#b3b3b3] duration-100 ease-linear hover:text-main-bg-color ">
-                    <Link to={"/"}>Electronics</Link>
-                  </li>
-                  <li className="menu_list w-full cursor-pointer py-4  pl-5 text-[#b3b3b3] duration-100 ease-linear  hover:text-main-bg-color ">
-                    <Link to={"/"}>Clothes</Link>
-                  </li>
-                  <li className="menu_list w-full cursor-pointer py-4  pl-5 text-[#b3b3b3] duration-100 ease-linear  hover:text-main-bg-color ">
-                    <Link to={"/"}>Bags</Link>
-                  </li>
-                  <li className="menu_list w-full cursor-pointer py-4  pl-5 text-[#b3b3b3] duration-100 ease-linear  hover:text-main-bg-color ">
-                    <Link to={"/"}>Home appliances</Link>
-                  </li>
-                </ul>
-              )}
+              <ul
+                className={`absolute z-10 w-full divide-y divide-[#4b4949] bg-main-font-color text-center duration-200 ease-linear sm:w-[263px] sm:text-start ${showCatagories ? "left-0 top-[135px] sm:left-[42px] sm:top-[140px] md:left-5 md:top-[158px] xl:left-[74px]" : "left-[-100%] top-[156px]"}`}
+              >
+                <li className="menu_list w-full cursor-pointer py-4 pl-5 text-[#b3b3b3] duration-100 ease-linear hover:text-main-bg-color ">
+                  <Link to={"/"}>Accesories</Link>
+                </li>
+                <li className="menu_list w-full cursor-pointer py-4  pl-5 text-[#b3b3b3] duration-100 ease-linear hover:text-main-bg-color ">
+                  <Link to={"/"}>Furniture</Link>
+                </li>
+                <li className="menu_list w-full cursor-pointer py-4  pl-5 text-[#b3b3b3] duration-100 ease-linear hover:text-main-bg-color ">
+                  <Link to={"/"}>Electronics</Link>
+                </li>
+                <li className="menu_list w-full cursor-pointer py-4  pl-5 text-[#b3b3b3] duration-100 ease-linear  hover:text-main-bg-color ">
+                  <Link to={"/"}>Clothes</Link>
+                </li>
+                <li className="menu_list w-full cursor-pointer py-4  pl-5 text-[#b3b3b3]  ease-linear  hover:text-main-bg-color ">
+                  <Link to={"/"}>Bags</Link>
+                </li>
+                <li className="menu_list w-full cursor-pointer py-4  pl-5 text-[#b3b3b3] duration-100 ease-linear  hover:text-main-bg-color ">
+                  <Link to={"/"}>Home appliances</Link>
+                </li>
+              </ul>
 
               <p className="hidden font-DMsans text-sm font-normal text-main-font-color lg:block">
                 Shop by Category
