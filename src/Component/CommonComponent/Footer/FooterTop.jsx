@@ -6,13 +6,13 @@ const FooterTop = ({
 }) => {
   return (
     <>
-      <div>
-        <h4 className="pb-4 text-main-font-color text-base font-DMsans font-bold">
+      <div className="">
+        <h4 className="pb-2 font-DMsans text-base font-bold text-main-font-color md:pb-4">
           {title}
         </h4>
         <ul>
           {allItem?.map((item, index) => (
-            <li className="menu_list pb-[6px]">
+            <li className="menu_list pb-[6px]" key={index}>
               <a href="#">
                 {title.toLocaleLowerCase() === "SHOP".toLocaleLowerCase()
                   ? item + (index + 1)

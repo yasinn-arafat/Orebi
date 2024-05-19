@@ -71,6 +71,49 @@ const settings = {
   slidesToScroll: 1,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
+  responsive: [
+    {
+      breakpoint: 1025,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false,
+      },
+    },
+    {
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 3,
+      },
+    },
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 
 const NewArival = ({ heading, ProductData }) => {
@@ -78,9 +121,9 @@ const NewArival = ({ heading, ProductData }) => {
 
   return (
     <>
-      <div className="pb-28">
+      <div className="px-4 pb-5 lg:pb-28 xl:px-0">
         <div className="container">
-          <h3 className="pb-12 font-DMsans text-[39px] font-bold text-main-font-color">
+          <h3 className="pb-7 font-DMsans text-3xl font-bold text-main-font-color sm:pb-12 md:text-[39px]">
             {heading ? heading : "New Arrivals"}
           </h3>
 

@@ -19,17 +19,17 @@ const Overlay = ({
           className={
             titleStyle
               ? titleStyle
-              : "text-4xl text-main-font-color font-DMsans font-bold"
+              : "font-DMsans text-4xl font-bold text-main-font-color"
           }
         >
           {title ? title : "Phones Sale"}
         </h3>
-        <div className="pt-5 pb-7">
+        <div className="pb-4 pt-4 sm:pt-1 lg:pb-8 lg:pt-6">
           <span
             className={
               uptoStyle
                 ? uptoStyle
-                : "text-main-font-color text-base font-DMsans font-normal opacity-70"
+                : "font-DMsans text-base font-normal text-main-font-color opacity-70"
             }
           >
             {upto ? upto : "Up to"}
@@ -38,7 +38,7 @@ const Overlay = ({
             className={
               discountStyle
                 ? discountStyle
-                : "text-main-font-color text-[40px] font-DMsans font-bold"
+                : "font-DMsans text-[40px] font-bold text-main-font-color"
             }
           >
             {discount ? discount : " 30% "}
@@ -47,7 +47,7 @@ const Overlay = ({
             className={
               saleStyle
                 ? saleStyle
-                : "text-main-font-color text-base font-DMsans font-normal opacity-70"
+                : "font-DMsans text-base font-normal text-main-font-color opacity-70"
             }
           >
             {sale ? sale : "sale for all phones!"}
@@ -55,7 +55,7 @@ const Overlay = ({
         </div>
         <Button
           className={
-            "block px-14 py-4 bg-main-font-color text-main-bg-color text-sm font-DMsans font-bold hover:translate-x-2 hover:ease-linear duration-200 "
+            "block bg-main-font-color px-10 py-3 font-DMsans text-sm font-bold text-main-bg-color duration-150 ease-linear md:px-14 md:py-4 lg:hover:translate-x-2"
           }
           title={"Shop Now"}
         />

@@ -63,7 +63,7 @@ const MenuBar = () => {
               </div>
 
               <ul
-                className={`absolute z-10 w-full divide-y divide-[#4b4949] bg-main-font-color text-center duration-200 ease-linear sm:w-[263px] sm:text-start ${showCatagories ? "left-0 top-[135px] sm:left-[42px] sm:top-[140px] md:left-5 md:top-[158px] xl:left-[74px]" : "left-[-100%] top-[156px]"}`}
+                className={`absolute z-10 w-full divide-y divide-[#4b4949] bg-main-font-color text-center duration-200 ease-linear sm:w-[263px] sm:text-start ${showCatagories ? "left-0 top-[135px] sm:left-[42px] sm:top-[140px] md:left-5 md:top-[158px] xl:left-[74px]" : "left-[-100%] top-[135px]"}`}
               >
                 <li className="menu_list w-full cursor-pointer py-4 pl-5 text-[#b3b3b3] duration-100 ease-linear hover:text-main-bg-color ">
                   <Link to={"/"}>Accesories</Link>
@@ -126,49 +126,51 @@ const MenuBar = () => {
                 <FaShoppingCart />
               </div>
 
-              <div
-                className={`absolute top-[135px] z-10 w-full duration-100 ease-linear sm:top-[140px] sm:w-[360px] md:top-[158px] ${showCart ? "right-0 top-[135px] sm:right-[34px] sm:top-[140px] md:right-[50px] md:top-[158px] lg:right-[111px] xl:right-16" : "right-[-100%] "}`}
-              >
-                <div className="flex items-center gap-x-[71px] bg-[#F5F5F3] p-5 sm:gap-x-[75px]">
-                  <div className="flex items-center gap-x-5">
-                    <div className="h-[80px] w-[80px] border border-[#2B2B2B] object-cover">
-                      <picture>
-                        <img src={SpecialProduct3} alt={SpecialProduct3} />
-                      </picture>
+              {showCart && (
+                <div
+                  className={`absolute top-[135px] z-10 w-full duration-100 ease-linear sm:top-[140px] sm:w-[360px] md:top-[158px] ${showCart ? "right-0 top-[135px] sm:right-[34px] sm:top-[140px] md:right-[50px] md:top-[158px] lg:right-[111px] xl:right-16" : null}`}
+                >
+                  <div className="flex items-center gap-x-[71px] bg-[#F5F5F3] p-5 sm:gap-x-[75px]">
+                    <div className="flex items-center gap-x-5">
+                      <div className="h-[80px] w-[80px] border border-[#2B2B2B] object-cover">
+                        <picture>
+                          <img src={SpecialProduct3} alt={SpecialProduct3} />
+                        </picture>
+                      </div>
+                      <div className="font-DMsans text-sm font-bold text-main-font-color">
+                        <h3 className="pb-3">Black Smart Watch</h3>
+                        <p>$44.00</p>
+                      </div>
                     </div>
-                    <div className="font-DMsans text-sm font-bold text-main-font-color">
-                      <h3 className="pb-3">Black Smart Watch</h3>
-                      <p>$44.00</p>
+                    <div className="cursor-pointer">
+                      <FaXmark />
                     </div>
                   </div>
-                  <div className="cursor-pointer">
-                    <FaXmark />
-                  </div>
-                </div>
 
-                <div className="bg-main-bg-color p-5">
-                  <div>
-                    <p className="pb-3 font-DMsans text-base font-bold text-tertiary-font-color">
-                      Subtotal:
-                      <span className="text-main-font-color"> $44.00</span>
-                    </p>
-                  </div>
-                  <div className="flex justify-between">
-                    <Button
-                      title={"View Cart"}
-                      className={
-                        "h-[49px] w-[147px] border border-[#2B2B2B] bg-transparent font-DMsans text-sm font-bold"
-                      }
-                    />
-                    <Button
-                      title={"Checkout"}
-                      className={
-                        "h-[50px] w-[148px] bg-main-font-color font-DMsans text-sm font-bold text-main-bg-color"
-                      }
-                    />
+                  <div className="bg-main-bg-color p-5">
+                    <div>
+                      <p className="pb-3 font-DMsans text-base font-bold text-tertiary-font-color">
+                        Subtotal:
+                        <span className="text-main-font-color"> $44.00</span>
+                      </p>
+                    </div>
+                    <div className="flex justify-between">
+                      <Button
+                        title={"View Cart"}
+                        className={
+                          "h-[49px] w-[147px] border border-[#2B2B2B] bg-transparent font-DMsans text-sm font-bold"
+                        }
+                      />
+                      <Button
+                        title={"Checkout"}
+                        className={
+                          "h-[50px] w-[148px] bg-main-font-color font-DMsans text-sm font-bold text-main-bg-color"
+                        }
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </Flex>
           </Flex>
         </div>
