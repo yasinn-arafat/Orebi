@@ -272,3 +272,61 @@ export const SpecialProductData = [
     discountOffer: "10%",
   },
 ];
+
+export const categories = [
+  {
+    id: "1",
+    title: "Category 1",
+    subCategoreis: [
+      {
+        id: "1",
+        title: "Subcategory 1",
+      },
+      {
+        id: "1",
+        title: "Subcategory 1",
+      },
+      {
+        id: "1",
+        title: "Subcategory 1",
+      },
+    ],
+  },
+
+  {
+    id: "2",
+    title: "Category 1",
+    subCategoreis: [],
+  },
+
+  {
+    id: "3",
+    title: "Category 1",
+    subCategoreis: [
+      {
+        id: "1",
+        title: "Subcategory 1",
+      },
+      {
+        id: "1",
+        title: "Subcategory 1",
+      },
+      {
+        id: "1",
+        title: "Subcategory 1",
+      },
+    ],
+  },
+
+  {
+    id: "2",
+    title: "Category 1",
+    subCategoreis: [],
+  },
+
+  {
+    id: "2",
+    title: "Category 1",
+    subCategoreis: [],
+  },
+];

@@ -1,5 +1,7 @@
 import React from "react";
 import BreadCrumb from "../../Component/CommonComponent/BreadCrumb/BreadCrumb";
+import ShopLeft from "../../Component/ShopComponent/ShopLeft/ShopLeft";
+import ShopRight from "../../Component/ShopComponent/ShopRight/ShopRight";
 
 const Shop = () => {
   return (
@@ -15,8 +17,8 @@ const Shop = () => {
             <BreadCrumb />
           </div>
           <div className="flex bg-purple-400 pt-20">
-            <div className="h-48 w-1/4 bg-red-400"></div>
-            <div className="h-48 w-9/12 bg-yellow-400"></div>
+            <ShopLeft className={"h-[100vh] w-1/4 bg-red-800"} />
+            <ShopRight className={"h-[100vh] w-9/12 bg-yellow-600"} />
           </div>
         </div>
       </div>
