@@ -273,59 +273,61 @@ export const SpecialProductData = [
   },
 ];
 
+// Categories Data
+
 export const categories = [
   {
-    id: "1",
+    id: 1,
     title: "Category 1",
     subCategoreis: [
       {
-        id: "1",
+        id: 1,
         title: "Subcategory 1",
       },
       {
-        id: "1",
+        id: 2,
         title: "Subcategory 1",
       },
       {
-        id: "1",
+        id: 3,
         title: "Subcategory 1",
       },
     ],
   },
 
   {
-    id: "2",
+    id: 2,
     title: "Category 2",
     subCategoreis: [],
   },
 
   {
-    id: "3",
+    id: 3,
     title: "Category 3",
     subCategoreis: [
       {
-        id: "1",
+        id: 1,
         title: "Subcategory 1",
       },
       {
-        id: "1",
+        id: 2,
         title: "Subcategory 1",
       },
       {
-        id: "1",
+        id: 3,
         title: "Subcategory 1",
       },
     ],
   },
 
   {
-    id: "4",
+    id: 4,
     title: "Category 4",
     subCategoreis: [],
   },
 
   {
-    id: "5",
+    id: 5,
     title: "Category 5",
     subCategoreis: [],
   },
