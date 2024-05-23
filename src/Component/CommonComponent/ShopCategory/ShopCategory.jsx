@@ -6,9 +6,12 @@ const ShopCategorys = ({ categoriesData, categoryTitle }) => {
     categoriesData.map(() => false),
   );
 
-  const HandleShopCategories = (id) => {
-    // setshowShopCategory(!showShopCategory);
-    console.log(id);
+  const HandleShopCategories = (idx) => {
+    setshowShopCategory((previousState) => {
+      return previousState.map((value, index) =>
+        idx === index ? !value : false,
+      );
+    });
   };
 
   return (
@@ -37,7 +40,7 @@ const ShopCategorys = ({ categoriesData, categoryTitle }) => {
                 </div>
 
                 <div>
-                  {showShopCategory &&
+                  {showShopCategory[index] &&
                     item.subCategoreis.map((subItem) => (
                       <div
                         className="border-b-2 border-b-[#F0F0F0] py-2"
@@ -53,7 +56,7 @@ const ShopCategorys = ({ categoriesData, categoryTitle }) => {
             ) : (
               <div
                 className="cursor-pointer border-b-2 border-b-[#F0F0F0] py-4"
-                key={index}
+                key={item}
               >
                 <h2 className="text-bases font-DMsans font-normal text-tertiary-font-color">
                   {item.title}

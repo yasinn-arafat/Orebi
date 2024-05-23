@@ -332,3 +332,28 @@ export const categories = [
     subCategoreis: [],
   },
 ];
+
+// ShopByColor Code Data
+
+export const shopByColor = [
+  { id: 1, colorCode: "#000000", title: "Black" },
+  { id: 2, colorCode: "#FF8686", title: "Pink" },
+  { id: 3, colorCode: "#7ED321", title: "Green" },
+  { id: 4, colorCode: "#B6B6B6", title: "Grey" },
+  { id: 5, colorCode: "#15CBA5", title: "Aqua" },
+];
+
+export const shopByBrand = [
+  { id: 1, title: "Arong" },
+  { id: 2, title: "Apex" },
+  { id: 3, title: "Anzara" },
+  { id: 4, title: "Bata" },
+  { id: 5, title: "Lotto" },
+];
+export const shopByPrice = [
+  { id: 1, title: "$0.00 - $9.99" },
+  { id: 2, title: "$10.00 - $19.99" },
+  { id: 3, title: "$20.00 - $29.99" },
+  { id: 4, title: "$30.00 - $39.99" },
+  { id: 5, title: "$40.00 - $69.99" },
+];
