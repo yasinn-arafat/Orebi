@@ -295,13 +295,13 @@ export const categories = [
 
   {
     id: "2",
-    title: "Category 1",
+    title: "Category 2",
     subCategoreis: [],
   },
 
   {
     id: "3",
-    title: "Category 1",
+    title: "Category 3",
     subCategoreis: [
       {
         id: "1",
@@ -319,14 +319,14 @@ export const categories = [
   },
 
   {
-    id: "2",
-    title: "Category 1",
+    id: "4",
+    title: "Category 4",
     subCategoreis: [],
   },
 
   {
-    id: "2",
-    title: "Category 1",
+    id: "5",
+    title: "Category 5",
     subCategoreis: [],
   },
 ];

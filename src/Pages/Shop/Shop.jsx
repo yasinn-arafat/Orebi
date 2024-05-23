@@ -6,9 +6,9 @@ import ShopRight from "../../Component/ShopComponent/ShopRight/ShopRight";
 const Shop = () => {
   return (
     <>
-      <div className="bg-yellow-800 py-16">
+      <div className="py-14">
         <div className="container">
-          <div className="bg-green-400">
+          <div>
             <div className="pb-6">
               <h2 className="font-DMsans text-5xl font-bold text-main-font-color">
                 Products
@@ -16,9 +16,9 @@ const Shop = () => {
             </div>
             <BreadCrumb />
           </div>
-          <div className="flex bg-purple-400 pt-20">
-            <ShopLeft className={"h-[100vh] w-1/4 bg-red-800"} />
-            <ShopRight className={"h-[100vh] w-9/12 bg-yellow-600"} />
+          <div className="flex pt-20">
+            <ShopLeft className={"h-[100vh] w-1/4"} />
+            <ShopRight className={"h-[100vh] w-9/12"} />
           </div>
         </div>
       </div>

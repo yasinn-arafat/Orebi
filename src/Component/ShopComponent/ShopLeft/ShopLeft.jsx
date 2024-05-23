@@ -6,7 +6,10 @@ const ShopLeft = ({ className }) => {
   return (
     <div className={className}>
       <div>
-        <ShopCategorys categoriesData={categories ? categories : []} />
+        <ShopCategorys
+          categoriesData={categories ? categories : []}
+          categoryTitle={"Shop by Category"}
+        />
       </div>
     </div>
   );
