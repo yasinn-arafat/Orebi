@@ -56,7 +56,7 @@ const ShopCategorys = ({ categoriesData, categoryTitle }) => {
             ) : (
               <div
                 className="cursor-pointer border-b-2 border-b-[#F0F0F0] py-4"
-                key={item}
+                key={item.title}
               >
                 <h2 className="text-bases font-DMsans font-normal text-tertiary-font-color">
                   {item.title}

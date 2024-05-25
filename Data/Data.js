@@ -278,57 +278,48 @@ export const SpecialProductData = [
 export const categories = [
   {
     id: 1,
-    title: "Category 1",
+    title: "Apple",
     subCategoreis: [
-      {
-        id: 1,
-        title: "Subcategory 1",
-      },
-      {
-        id: 2,
-        title: "Subcategory 1",
-      },
-      {
-        id: 3,
-        title: "Subcategory 1",
-      },
+      { id: 1, title: "iphone 6" },
+      { id: 2, title: "iphone 9 plus" },
+      { id: 3, title: "iphone X" },
+      { id: 4, title: "iphone 11 pro max" },
+      { id: 5, title: "iphone 12" },
+      { id: 6, title: "iphone 13 pro" },
+      { id: 7, title: "iphone 14 pro max" },
+      { id: 8, title: "iphone 15" },
     ],
   },
 
   {
     id: 2,
-    title: "Category 2",
+    title: "Electronics",
     subCategoreis: [],
   },
 
   {
     id: 3,
-    title: "Category 3",
+    title: "Cloths",
     subCategoreis: [
-      {
-        id: 1,
-        title: "Subcategory 1",
-      },
-      {
-        id: 2,
-        title: "Subcategory 1",
-      },
-      {
-        id: 3,
-        title: "Subcategory 1",
-      },
+      { id: 1, title: "Men" },
+      { id: 2, title: "Women" },
+      { id: 3, title: "Kid" },
     ],
   },
 
   {
     id: 4,
-    title: "Category 4",
-    subCategoreis: [],
+    title: "Computer",
+    subCategoreis: [
+      { id: 1, title: "Asus" },
+      { id: 2, title: "Gigabyte" },
+      { id: 3, title: "Dell" },
+    ],
   },
 
   {
     id: 5,
-    title: "Category 5",
+    title: "Laptop",
     subCategoreis: [],
   },
 ];
@@ -350,10 +341,19 @@ export const shopByBrand = [
   { id: 4, title: "Bata" },
   { id: 5, title: "Lotto" },
 ];
+
 export const shopByPrice = [
   { id: 1, title: "$0.00 - $9.99" },
   { id: 2, title: "$10.00 - $19.99" },
   { id: 3, title: "$20.00 - $29.99" },
   { id: 4, title: "$30.00 - $39.99" },
   { id: 5, title: "$40.00 - $69.99" },
+];
+
+export const sortBy = [
+  { id: 1, sortTitle: "Cloths" },
+  { id: 2, sortTitle: "Sunglass" },
+  { id: 3, sortTitle: "Shoe" },
+  { id: 4, sortTitle: "Bag" },
+  { id: 5, sortTitle: "Watch" },
 ];

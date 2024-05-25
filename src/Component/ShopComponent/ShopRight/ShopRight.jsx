@@ -1,10 +1,15 @@
 import React from "react";
+import ShopRightTop from "./ShopRightTop";
 
 const ShopRight = ({ className }) => {
   return (
-    <div className={className}>
-      <div>ShopRight</div>
-    </div>
+    <>
+      <div className={className}>
+        <div>
+          <ShopRightTop />
+        </div>
+      </div>
+    </>
   );
 };
 

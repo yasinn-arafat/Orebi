@@ -17,8 +17,8 @@ const Shop = () => {
             <BreadCrumb />
           </div>
           <div className="flex pt-20">
-            <ShopLeft className={"h-[150vh] w-1/4"} />
-            <ShopRight className={"h-[150vh] w-9/12"} />
+            <ShopLeft className={"h-[150vh] w-1/4 "} />
+            <ShopRight className={"ml-7 h-[150vh] w-9/12"} />
           </div>
         </div>
       </div>
