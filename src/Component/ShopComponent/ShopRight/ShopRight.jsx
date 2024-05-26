@@ -1,5 +1,6 @@
 import React from "react";
-import ShopRightTop from "./ShopRightTop";
+import ShopRightTop from "../../CommonComponent/ShopRightItem/ShopRightTop";
+import ShopBottom from "../../CommonComponent/ShopRightItem/ShopRightBottom";
 
 const ShopRight = ({ className }) => {
   return (
@@ -7,6 +8,7 @@ const ShopRight = ({ className }) => {
       <div className={className}>
         <div>
           <ShopRightTop />
+          <ShopBottom />
         </div>
       </div>
     </>

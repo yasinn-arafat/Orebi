@@ -1,12 +1,12 @@
 import React from "react";
-import ShopCategorys from "../../CommonComponent/ShopCategory/ShopCategory";
+import ShopCategorys from "../../CommonComponent/ShopLeftItem/ShopCategory";
 import {
   categories,
   shopByColor,
   shopByBrand,
   shopByPrice,
 } from "../../../../Data/Data";
-import ShopByColor from "../../CommonComponent/ShopCategory/ShopByColor";
+import ShopByColor from "../../CommonComponent/ShopLeftItem/ShopByColor";
 
 const ShopLeft = ({ className }) => {
   return (

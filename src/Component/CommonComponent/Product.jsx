@@ -9,6 +9,7 @@ const Product = ({
   image,
   producttitle,
   productPrice,
+  colorVarientTitle,
 }) => {
   return (
     <>
@@ -64,7 +65,7 @@ const Product = ({
           <div className="mt-4">
             {colorVarient && (
               <span className="font-DMsans text-base font-normal text-tertiary-font-color">
-                Black
+                {colorVarientTitle ? colorVarientTitle : null}
               </span>
             )}
           </div>
