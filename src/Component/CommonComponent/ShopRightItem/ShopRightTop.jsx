@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { sortBy } from "../../../../Data/Data.js";
 import { IoGrid } from "react-icons/io5";
 import { FaListUl } from "react-icons/fa6";
 
-const ShopRightTop = () => {
+const ShopRightTop = (onPageOptn) => {
   return (
     <div className="flex items-center justify-between">
       <div className="text-3xl">
@@ -32,6 +32,7 @@ const ShopRightTop = () => {
             name="show"
             id="show"
             className="min-w-[139px] cursor-pointer border-2 border-[#F0F0F0] p-2"
+            onChange={onPageOptn}
           >
             <option value="9">9</option>
             <option value="18">18</option>

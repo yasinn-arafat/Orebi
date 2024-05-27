@@ -19,10 +19,7 @@ const ShopRightBottom = () => {
   // handlePagenation Functionality
 
   const handlePagenation = (pageNumber) => {
-    if (
-      pageNumber > 0 &&
-      pageNumber <= Math.floor(allProducts.length / 9) + 1
-    ) {
+    if (pageNumber > 0 && z <= Math.floor(allProducts.length / 9) + 1) {
       setpage(pageNumber);
     }
   };
