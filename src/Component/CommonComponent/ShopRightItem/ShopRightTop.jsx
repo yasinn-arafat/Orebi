@@ -3,7 +3,7 @@ import { sortBy } from "../../../../Data/Data.js";
 import { IoGrid } from "react-icons/io5";
 import { FaListUl } from "react-icons/fa6";
 
-const ShopRightTop = (onPageOptn) => {
+const ShopRightTop = ({ onPageOptn }) => {
   return (
     <div className="flex items-center justify-between">
       <div className="text-3xl">
@@ -36,7 +36,7 @@ const ShopRightTop = (onPageOptn) => {
           >
             <option value="9">9</option>
             <option value="18">18</option>
-            <option value="36">36</option>
+            <option value="27">27</option>
           </select>
         </div>
       </div>
