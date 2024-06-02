@@ -23,6 +23,9 @@ const ShopRightBottom = () => {
     dispatch(fetchProduct());
   });
 
+  // const xyz = useSelector((state) => state.product);
+  // console.log(xyz);
+
   useEffect(() => {
     const productDataFetcher = async () => {
       const Products = await axios.get("https://dummyjson.com/products");
