@@ -1,21 +1,35 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import Product from "../Product";
 import Button from "../Button";
 import { FaAngleDoubleRight, FaAngleDoubleLeft } from "react-icons/fa";
 import { ShopRightPageContext } from "../../ShopComponent/ShopRight/ShopRight";
+import {
+  fetchProduct,
+  setProducts,
+} from "../../../Redux/AllSlice/ProductSilce/ProductSilce";
 
 const ShopRightBottom = () => {
+  const dispatch = useDispatch();
   const [allProducts, setallProducts] = useState([]);
   const [page, setpage] = useState(1);
 
   // value from shop Right
   const value = useContext(ShopRightPageContext);
 
+  // Data from redus store
+  useEffect(() => {
+    dispatch(fetchProduct());
+  });
+
   useEffect(() => {
     const productDataFetcher = async () => {
       const Products = await axios.get("https://dummyjson.com/products");
       setallProducts(Products.data.products);
+
+      //  set data on Redux
+      // dispatch(setProducts(Products.data.products));
     };
     productDataFetcher();
   }, []);
