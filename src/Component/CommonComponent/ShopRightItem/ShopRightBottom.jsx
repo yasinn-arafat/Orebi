@@ -9,6 +9,8 @@ import {
   fetchProduct,
   setProducts,
 } from "../../../Redux/AllSlice/ProductSilce/ProductSilce";
+import { RiH1 } from "react-icons/ri";
+import Loading from "../Loading/Loading";
 
 const ShopRightBottom = () => {
   const dispatch = useDispatch();
@@ -21,12 +23,18 @@ const ShopRightBottom = () => {
   // Data from redus store
   useEffect(() => {
     dispatch(fetchProduct());
-  });
+  }, []);
 
-  // const xyz = useSelector((state) => state.product);
-  // console.log(xyz);
+  const { data, status } = useSelector((state) => state.product);
 
   useEffect(() => {
+    if (status.payload === "IDLE" && data.payload.length > 0) {
+      setallProducts(data.payload);
+    }
+  }, [data.payload, status.payload]);
+
+  /**
+   * useEffect(() => {
     const productDataFetcher = async () => {
       const Products = await axios.get("https://dummyjson.com/products");
       setallProducts(Products.data.products);
@@ -35,7 +43,8 @@ const ShopRightBottom = () => {
       // dispatch(setProducts(Products.data.products));
     };
     productDataFetcher();
-  }, []);
+  }, []); 
+ */
 
   // handlePagenation Functionality
 
@@ -51,70 +60,93 @@ const ShopRightBottom = () => {
   return (
     <>
       <div className="pt-11">
-        <div className="flex flex-wrap justify-between gap-y-7">
-          {allProducts
-            ?.slice(page * value - value, page * value)
-            .map((productItem) => (
-              <div key={productItem.id}>
-                <Product
-                  image={productItem.thumbnail}
-                  producttitle={productItem.title}
-                  productPrice={`$${productItem.price}`}
-                  colorVarient={true}
-                  colorVarientTitle={productItem.brand}
-                  badge={
-                    <Button
-                      className={
-                        "bg-main-font-color px-8 py-[9px] font-DMsans text-sm font-bold text-main-bg-color"
-                      }
-                      title={
-                        productItem.discountPercentage
-                          ? `- $${productItem.discountPercentage}`
-                          : productItem.stock === 0
-                            ? "Stock Out"
-                            : "New"
-                      }
-                    />
-                  }
-                />
+        {status.payload === "LOADING" ? (
+          <div className="flex flex-wrap justify-between gap-y-6">
+            <Loading />
+            <Loading />
+            <Loading />
+            <Loading />
+            <Loading />
+            <Loading />
+            <Loading />
+            <Loading />
+            <Loading />
+          </div>
+        ) : status.payload === "ERROR" ? (
+          <h1>Error</h1>
+        ) : (
+          allProducts && (
+            <div>
+              <div className="flex flex-wrap justify-between gap-y-7">
+                {allProducts
+                  ?.slice(page * value - value, page * value)
+                  .map((productItem) => (
+                    <div key={productItem.id}>
+                      <Product
+                        image={productItem.thumbnail}
+                        producttitle={productItem.title}
+                        productPrice={`$${productItem.price}`}
+                        colorVarient={true}
+                        colorVarientTitle={productItem.brand}
+                        badge={
+                          <Button
+                            className={
+                              "bg-main-font-color px-8 py-[9px] font-DMsans text-sm font-bold text-main-bg-color"
+                            }
+                            title={
+                              productItem.discountPercentage
+                                ? `- $${productItem.discountPercentage}`
+                                : productItem.stock === 0
+                                  ? "Stock Out"
+                                  : "New"
+                            }
+                          />
+                        }
+                      />
+                    </div>
+                  ))}
               </div>
-            ))}
-        </div>
 
-        <div className="mt-14">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-x-2">
-              <p
-                className="flex h-9 w-9 cursor-pointer items-center justify-center bg-red-200 font-DMsans text-base font-normal text-main-font-color"
-                onClick={() => handlePagenation(page - 1)}
-              >
-                <FaAngleDoubleLeft />
-              </p>
-
-              {[...new Array(Math.floor(allProducts.length / value) + 1)].map(
-                (item, index) => (
-                  <div key={index} onClick={() => handlePagenation(index + 1)}>
+              <div className="mt-14">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-x-2">
                     <p
-                      className={`bg-transparebt flex h-9 w-9 cursor-pointer items-center justify-center border border-[#F0F0F0] font-DMsans text-base font-normal text-main-font-color ${index + 1 === page && "border border-[#F0F0F0] bg-black text-white"}`}
+                      className="flex h-9 w-9 cursor-pointer items-center justify-center bg-red-200 font-DMsans text-base font-normal text-main-font-color"
+                      onClick={() => handlePagenation(page - 1)}
                     >
-                      {index + 1}
+                      <FaAngleDoubleLeft />
+                    </p>
+
+                    {[
+                      ...new Array(Math.floor(allProducts.length / value) + 1),
+                    ].map((item, index) => (
+                      <div
+                        key={index}
+                        onClick={() => handlePagenation(index + 1)}
+                      >
+                        <p
+                          className={`bg-transparebt flex h-9 w-9 cursor-pointer items-center justify-center border border-[#F0F0F0] font-DMsans text-base font-normal text-main-font-color ${index + 1 === page && "border border-[#F0F0F0] bg-black text-white"}`}
+                        >
+                          {index + 1}
+                        </p>
+                      </div>
+                    ))}
+
+                    <p
+                      className="flex h-9 w-9 cursor-pointer items-center justify-center bg-red-200 font-DMsans text-base font-normal text-main-font-color"
+                      onClick={() => handlePagenation(page + 1)}
+                    >
+                      <FaAngleDoubleRight />
                     </p>
                   </div>
-                ),
-              )}
-
-              <p
-                className="flex h-9 w-9 cursor-pointer items-center justify-center bg-red-200 font-DMsans text-base font-normal text-main-font-color"
-                onClick={() => handlePagenation(page + 1)}
-              >
-                <FaAngleDoubleRight />
-              </p>
+                  <div>
+                    <span className="font-DMsans text-sm font-normal text-tertiary-font-color">{`Products from ${page * value - value + 1} to ${page === Math.floor(allProducts.length / value) + 1 ? allProducts.length : page * value} of ${allProducts.length}`}</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <span className="font-DMsans text-sm font-normal text-tertiary-font-color">{`Products from ${page * value - value + 1} to ${page === Math.floor(allProducts.length / value) + 1 ? allProducts.length : page * value} of ${allProducts.length}`}</span>
-            </div>
-          </div>
-        </div>
+          )
+        )}
       </div>
     </>
   );
