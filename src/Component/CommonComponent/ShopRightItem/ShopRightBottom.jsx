@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
 import Product from "../Product";
 import Button from "../Button";
 import { FaAngleDoubleRight, FaAngleDoubleLeft } from "react-icons/fa";
@@ -11,6 +10,7 @@ import {
 } from "../../../Redux/AllSlice/ProductSilce/ProductSilce";
 import { RiH1 } from "react-icons/ri";
 import Loading from "../Loading/Loading";
+import { Link } from "react-router-dom";
 
 const ShopRightBottom = () => {
   const dispatch = useDispatch();
@@ -19,17 +19,18 @@ const ShopRightBottom = () => {
 
   // value from shop Right
   const value = useContext(ShopRightPageContext);
+  const { showPerPageItem, gridLayout } = value;
 
   // Data from redus store
   useEffect(() => {
-    dispatch(fetchProduct());
+    dispatch(fetchProduct("https://dummyjson.com/products"));
   }, []);
 
   const { data, status } = useSelector((state) => state.product);
 
   useEffect(() => {
-    if (status.payload === "IDLE" && data.payload.length > 0) {
-      setallProducts(data.payload);
+    if (status.payload === "IDLE" && data.payload.products.length > 0) {
+      setallProducts(data.payload.products);
     }
   }, [data.payload, status.payload]);
 
@@ -51,7 +52,7 @@ const ShopRightBottom = () => {
   const handlePagenation = (pageNumber) => {
     if (
       pageNumber > 0 &&
-      pageNumber <= Math.floor(allProducts.length / value) + 1
+      pageNumber <= Math.floor(allProducts.length / showPerPageItem) + 1
     ) {
       setpage(pageNumber);
     }
@@ -79,30 +80,40 @@ const ShopRightBottom = () => {
             <div>
               <div className="flex flex-wrap justify-between gap-y-7">
                 {allProducts
-                  ?.slice(page * value - value, page * value)
+                  ?.slice(
+                    page * showPerPageItem - showPerPageItem,
+                    page * showPerPageItem,
+                  )
                   .map((productItem) => (
-                    <div key={productItem.id}>
-                      <Product
-                        image={productItem.thumbnail}
-                        producttitle={productItem.title}
-                        productPrice={`$${productItem.price}`}
-                        colorVarient={true}
-                        colorVarientTitle={productItem.brand}
-                        badge={
-                          <Button
-                            className={
-                              "bg-main-font-color px-8 py-[9px] font-DMsans text-sm font-bold text-main-bg-color"
-                            }
-                            title={
-                              productItem.discountPercentage
-                                ? `- $${productItem.discountPercentage}`
-                                : productItem.stock === 0
-                                  ? "Stock Out"
-                                  : "New"
-                            }
-                          />
-                        }
-                      />
+                    <div
+                      className={`${gridLayout ? "relative w-full rounded-xl bg-gray-100" : null}`}
+                      key={productItem.id}
+                    >
+                      <Link to={`/product-details/${productItem.id}`}>
+                        <Product
+                          image={productItem.thumbnail}
+                          producttitle={productItem.title}
+                          productPrice={`$${productItem.price}`}
+                          colorVarient={true}
+                          productDescrip={productItem.description}
+                          changeIcon={gridLayout}
+                          colorVarientTitle={productItem.brand}
+                          badge={
+                            <Button
+                              className={
+                                "bg-main-font-color px-8 py-[9px] font-DMsans text-sm font-bold text-main-bg-color"
+                              }
+                              title={
+                                productItem.discountPercentage
+                                  ? `- $${productItem.discountPercentage}`
+                                  : productItem.stock === 0
+                                    ? "Stock Out"
+                                    : "New"
+                              }
+                            />
+                          }
+                        />
+                      </Link>
                     </div>
                   ))}
               </div>
@@ -118,7 +129,9 @@ const ShopRightBottom = () => {
                     </p>
 
                     {[
-                      ...new Array(Math.floor(allProducts.length / value) + 1),
+                      ...new Array(
+                        Math.floor(allProducts.length / showPerPageItem) + 1,
+                      ),
                     ].map((item, index) => (
                       <div
                         key={index}
@@ -140,7 +153,7 @@ const ShopRightBottom = () => {
                     </p>
                   </div>
                   <div>
-                    <span className="font-DMsans text-sm font-normal text-tertiary-font-color">{`Products from ${page * value - value + 1} to ${page === Math.floor(allProducts.length / value) + 1 ? allProducts.length : page * value} of ${allProducts.length}`}</span>
+                    <span className="font-DMsans text-sm font-normal text-tertiary-font-color">{`Products from ${page * showPerPageItem - showPerPageItem + 1} to ${page === Math.floor(allProducts.length / showPerPageItem) + 1 ? allProducts.length : page * showPerPageItem} of ${allProducts.length}`}</span>
                   </div>
                 </div>
               </div>

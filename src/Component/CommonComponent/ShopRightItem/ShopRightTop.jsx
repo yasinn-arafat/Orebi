@@ -3,11 +3,11 @@ import { sortBy } from "../../../../Data/Data.js";
 import { IoGrid } from "react-icons/io5";
 import { FaListUl } from "react-icons/fa6";
 
-const ShopRightTop = ({ onPageOptn }) => {
+const ShopRightTop = ({ onPageOptn, onChangeLayout, changeIcon }) => {
   return (
     <div className="flex items-center justify-between">
-      <div className="text-3xl">
-        <IoGrid />
+      <div className="cursor-pointer text-3xl" onClick={onChangeLayout}>
+        {changeIcon ? <FaListUl /> : <IoGrid />}
       </div>
       <div className="flex items-center gap-x-9">
         <div className="font-DMsans text-base font-normal text-tertiary-font-color">
