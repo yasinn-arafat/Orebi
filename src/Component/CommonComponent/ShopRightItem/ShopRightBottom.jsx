@@ -29,7 +29,7 @@ const ShopRightBottom = () => {
   const { data, status } = useSelector((state) => state.product);
 
   useEffect(() => {
-    if (status.payload === "IDLE" && data.payload.products.length > 0) {
+    if (status.payload === "IDLE") {
       setallProducts(data.payload.products);
     }
   }, [data.payload, status.payload]);
@@ -62,17 +62,7 @@ const ShopRightBottom = () => {
     <>
       <div className="pt-11">
         {status.payload === "LOADING" ? (
-          <div className="flex flex-wrap justify-between gap-y-6">
-            <Loading />
-            <Loading />
-            <Loading />
-            <Loading />
-            <Loading />
-            <Loading />
-            <Loading />
-            <Loading />
-            <Loading />
-          </div>
+          <Loading perItem={9} />
         ) : status.payload === "ERROR" ? (
           <h1>Error</h1>
         ) : (
