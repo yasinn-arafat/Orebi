@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import BreadCrumb from "../../Component/CommonComponent/BreadCrumb/BreadCrumb";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../Redux/AllSlice/ProductSilce/ProductSilce";
-import ProductDetailsTop from "../../Component/CommonComponent/ProductDetailsComponent/ProductDetailsTop";
+import ProductDetailsTop from "../../Component/CommonComponent/ProductDetailsComponent/ProductDetailsTop/ProductDetailsTop";
 import Loading from "../../Component/CommonComponent/Loading/Loading";
 import RatingStar from "../../Component/CommonComponent/ProductDetailsComponent/RatingStar/RatingStar";
 import ProductInfo from "../../Component/CommonComponent/ProductDetailsComponent/ProductInfo/ProductInfo";
@@ -22,6 +22,7 @@ const ProductDetails = () => {
       seteachProduct(data.payload);
     }
   }, [data.payload, status.payload]);
+  console.log(eachProduct);
 
   return (
     <>
@@ -65,7 +66,10 @@ const ProductDetails = () => {
           </div>
           <hr className="w-1/2" />
           <div>
-            <ProductInfo productstock={eachProduct.stock} />
+            <ProductInfo
+              productstock={eachProduct.stock}
+              productDescription={eachProduct.description}
+            />
           </div>
         </div>
       </div>

@@ -1,8 +1,10 @@
 import React from "react";
 import { HiOutlinePlus, HiOutlineMinusSm } from "react-icons/hi";
 import Button from "../../../CommonComponent/Button";
+import ProductDropDown from "../ProductDropDown/ProductDropDown";
+import ProductReview from "../ProductReview/ProductReview";
 
-const ProductInfo = ({ productstock }) => {
+const ProductInfo = ({ productstock, productDescription }) => {
   const colorItem = [
     { id: 1, colorCode: "#979797" },
     { id: 2, colorCode: "#FF8686" },
@@ -104,6 +106,17 @@ const ProductInfo = ({ productstock }) => {
         </div>
         <hr className="w-1/2" />
         {/* {Wishlist & Cart btn Component} */}
+        {/* {DropDown Component} */}
+        <div className="flex flex-col gap-y-5">
+          <ProductDropDown DropDownTitle={"FEATURES & DETAILS"} />
+          <hr className="w-1/2" />
+          <ProductDropDown DropDownTitle={"SHIPPING & RETURNS"} />
+          <hr className="w-1/2" />
+        </div>
+        {/* {DropDown Component} */}
+        {/* {Review Component} */}
+        <ProductReview description={productDescription} />
+        {/* {Review Component} */}
       </div>
     </>
   );

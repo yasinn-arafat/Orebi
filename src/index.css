@@ -48,6 +48,11 @@ body {
 }
 
 @layer components {
+  input[type="checkbox"]:checked {
+    background-image: none !important;
+    color: var(--tertiary-font-color);
+    border: 3px solid #e9e9e9;
+  }
   .menu_list {
     @apply font-DMsans text-sm font-normal text-tertiary-font-color;
     letter-spacing: 0.6px;
