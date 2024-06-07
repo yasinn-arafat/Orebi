@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Shop from "./Pages/Shop/Shop";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
+import Signup from "./Pages/Signup/Signup";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="/shop" element={<Shop />} />
       <Route path="/product-details/:productID" element={<ProductDetails />} />
+      <Route path="/sign-up" element={<Signup />} />
     </Route>,
   ),
 );

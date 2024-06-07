@@ -7,7 +7,7 @@ const ProductDetailsTop = ({ EachPoductImg }) => {
         <div className="flex flex-wrap items-center justify-between gap-y-7">
           {EachPoductImg.images?.map((img) => (
             <div
-              className="h-[450px] w-[49%] cursor-pointer rounded-lg shadow-xl"
+              className="h-[450px] w-[49%] cursor-pointer rounded-lg bg-green-300 shadow-xl"
               key={img}
             >
               <picture>
