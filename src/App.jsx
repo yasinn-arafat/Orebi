@@ -1,4 +1,6 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Home from "./Pages/Home/Home";
 import RootLayout from "./Component/CommonComponent/RootLayout/RootLayout";
 import {
@@ -24,9 +26,10 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <RouterProvider router={router}>
-      <Home />
-    </RouterProvider>
+    <>
+      <ToastContainer />
+      <RouterProvider router={router}></RouterProvider>
+    </>
   );
 }
 

@@ -7,6 +7,7 @@ const SignUpInput = ({
   placeholder,
   onChangeInput,
   className,
+  value,
 }) => {
   return (
     <div>
@@ -24,6 +25,7 @@ const SignUpInput = ({
           placeholder={placeholder}
           className={`border-b-2 pb-3 placeholder:font-DMsans placeholder:text-sm placeholder:font-normal placeholder:text-tertiary-font-color ${className}`}
           onChange={onChangeInput}
+          value={value}
         />
       </div>
     </div>

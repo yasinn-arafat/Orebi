@@ -1,15 +1,17 @@
 import React from "react";
 
-const Button = ({ className, title }) => {
+const Button = ({ className, title, icon, onClickFunction }) => {
   return (
     <>
       <button
         className={
           className
             ? className
-            : "px-14 py-4 bg-main-font-color text-main-bg-color text-sm font-DMsans font-bold"
+            : "bg-main-font-color px-14 py-4 font-DMsans text-sm font-bold text-main-bg-color"
         }
+        onClick={onClickFunction}
       >
+        {icon}
         {title ? title : "Shop Now"}
       </button>
     </>

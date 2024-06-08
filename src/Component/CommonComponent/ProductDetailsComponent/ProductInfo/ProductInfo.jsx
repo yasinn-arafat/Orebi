@@ -4,7 +4,7 @@ import Button from "../../../CommonComponent/Button";
 import ProductDropDown from "../ProductDropDown/ProductDropDown";
 import ProductReview from "../ProductReview/ProductReview";
 
-const ProductInfo = ({ productstock, productDescription }) => {
+const ProductInfo = ({ productstock, productDescription, onclick }) => {
   const colorItem = [
     { id: 1, colorCode: "#979797" },
     { id: 2, colorCode: "#FF8686" },
@@ -101,6 +101,7 @@ const ProductInfo = ({ productstock, productDescription }) => {
               className={
                 "w-48 rounded border border-main-font-color bg-main-font-color py-3 font-DMsans text-sm font-bold text-main-bg-color"
               }
+              onClickFunction={onclick}
             />
           </div>
         </div>

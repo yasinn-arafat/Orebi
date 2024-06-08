@@ -1,9 +1,18 @@
 import React, { useState } from "react";
+import { toast, Bounce } from "react-toastify";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import SignUpTop from "../../Component/CommonComponent/SignUpComponent/SignUpTop/SignUpTop";
 import SignUpInput from "../../Component/CommonComponent/SignUpComponent/SignUpInput/SignUpInput";
 import Button from "../../Component/CommonComponent/Button";
+import { ImSpinner9 } from "react-icons/im";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../../Firebase/FirebaseConfig.js";
 
 const Signup = () => {
+  const auth = getAuth();
+
+  const [loading, setloading] = useState(false);
+
   const [userInfo, setuserInfo] = useState({
     FirstName: "",
     LastName: "",
@@ -192,7 +201,7 @@ const Signup = () => {
         RepeatPasswordError: "",
         PasswordNotMatch: "Confirm Password Not Matched",
       });
-    } else if (Agreement === false) {
+    } else if (Agreement == false) {
       setuserInfoError({
         ...userInfoError,
         FirstNameError: "",
@@ -209,22 +218,79 @@ const Signup = () => {
         AgreementError: "Please Select Our Privacy Policy",
       });
     } else {
-      setuserInfoError({
-        ...userInfoError,
-        FirstNameError: "",
-        EmailError: "",
-        TelephoneError: "",
-        Address1Error: "",
-        cityError: "",
-        postCodeError: "",
-        DivisionError: "",
-        DistrictError: "",
-        PasswordError: "",
-        RepeatPasswordError: "",
-        PasswordNotMatch: "",
-        AgreementError: "",
-      });
-      alert("EveryThing is ok");
+      // Create User With Firebase createUserWithEmailAndPassword
+      setloading(true);
+      createUserWithEmailAndPassword(auth, userInfo.Email, userInfo.Password)
+        .then((userCredential) => {
+          toast.success(`${userInfo.FirstName} Sign Up Done`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+        })
+        .then(() => {
+          addDoc(collection(db, "users"), userInfo)
+            .then((userData) => {
+              console.log(userData);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        })
+        .catch((err) => {
+          toast.error(`${err.code}`, {
+            position: "top-left",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+        })
+        .finally(() => {
+          setloading(false);
+          setuserInfo({
+            FirstName: "",
+            LastName: "",
+            Email: "",
+            Telephone: "",
+            Address1: "",
+            Address2: "",
+            city: "",
+            postCode: "",
+            Division: "",
+            District: "",
+            Password: "",
+            RepeatPassword: "",
+            Agreement: false,
+            Subscribe1: false,
+            Subscribe2: false,
+          });
+          setuserInfoError({
+            ...userInfoError,
+            FirstNameError: "",
+            EmailError: "",
+            TelephoneError: "",
+            Address1Error: "",
+            cityError: "",
+            postCodeError: "",
+            DivisionError: "",
+            DistrictError: "",
+            PasswordError: "",
+            RepeatPasswordError: "",
+            PasswordNotMatch: "",
+            AgreementError: "",
+          });
+        });
     }
   };
 
@@ -255,6 +321,7 @@ const Signup = () => {
                         inputType={"text"}
                         inputId={"FirstName"}
                         onChangeInput={handleInputChange}
+                        value={userInfo.FirstName}
                         className={`${userInfoError.FirstNameError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
                       />
                       {userInfoError.FirstNameError && (
@@ -270,6 +337,7 @@ const Signup = () => {
                         inputType={"text"}
                         inputId={"LastName"}
                         onChangeInput={handleInputChange}
+                        value={userInfo.LastName}
                       />
                     </div>
                     <div className="w-[35%]">
@@ -280,6 +348,7 @@ const Signup = () => {
                         inputId={"Email"}
                         onChangeInput={handleInputChange}
                         className={`${userInfoError.EmailError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                        value={userInfo.Email}
                       />
                       {userInfoError.EmailError && (
                         <p className="font-DMsans text-sm font-normal text-red-500">
@@ -295,6 +364,7 @@ const Signup = () => {
                         inputId={"Telephone"}
                         onChangeInput={handleInputChange}
                         className={`${userInfoError.TelephoneError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                        value={userInfo.Telephone}
                       />
                       {userInfoError.TelephoneError && (
                         <p className="font-DMsans text-sm font-normal text-red-500">
@@ -327,6 +397,7 @@ const Signup = () => {
                         inputId={"Address1"}
                         onChangeInput={handleInputChange}
                         className={`${userInfoError.Address1Error ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                        value={userInfo.Address1}
                       />
                       {userInfoError.Address1Error && (
                         <p className="font-DMsans text-sm font-normal text-red-500">
@@ -341,6 +412,7 @@ const Signup = () => {
                         inputType={"text"}
                         inputId={"Address2"}
                         onChangeInput={handleInputChange}
+                        value={userInfo.Address2}
                       />
                     </div>
                     <div className="w-[35%]">
@@ -350,6 +422,7 @@ const Signup = () => {
                         inputType={"text"}
                         inputId={"city"}
                         onChangeInput={handleInputChange}
+                        value={userInfo.city}
                         className={`${userInfoError.cityError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
                       />
                       {userInfoError.cityError && (
@@ -365,6 +438,7 @@ const Signup = () => {
                         inputType={"text"}
                         inputId={"postCode"}
                         onChangeInput={handleInputChange}
+                        value={userInfo.postCode}
                         className={`${userInfoError.postCodeError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
                       />
                       {userInfoError.postCodeError && (
@@ -383,6 +457,7 @@ const Signup = () => {
                         id="Division"
                         className={`w-full border-b-2 py-3 pb-3 font-DMsans text-sm font-normal text-tertiary-font-color ${userInfoError.DivisionError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
                         onChange={handleInputChange}
+                        value={userInfo.Division}
                       >
                         <option value="">Please select</option>
                         <option value="Dhaka">Dhaka</option>
@@ -410,6 +485,7 @@ const Signup = () => {
                         id="District"
                         className={`w-full border-b-2 py-3 pb-3 font-DMsans text-sm font-normal text-tertiary-font-color ${userInfoError.DistrictError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
                         onChange={handleInputChange}
+                        value={userInfo.District}
                       >
                         <option value="">Please select</option>
                         <option value="Dhaka">Dhaka</option>
@@ -454,6 +530,7 @@ const Signup = () => {
                         inputType={"password"}
                         inputId={"Password"}
                         onChangeInput={handleInputChange}
+                        value={userInfo.Password}
                         className={`${userInfoError.PasswordError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
                       />
                       {userInfoError.PasswordError && (
@@ -469,6 +546,7 @@ const Signup = () => {
                         inputType={"password"}
                         inputId={"RepeatPassword"}
                         onChangeInput={handleInputChange}
+                        value={userInfo.RepeatPassword}
                         className={`${userInfoError.RepeatPasswordError ? "border-b-red-500" : "border-b-[#F0F0F0]"} ${userInfoError.PasswordNotMatch ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
                       />
                       {userInfoError.RepeatPasswordError && (
@@ -497,6 +575,7 @@ const Signup = () => {
                         name="Agreement"
                         id="Agreement"
                         onChange={handleInputChange}
+                        value={userInfo.Agreement}
                       />
                       <h4>I have read and agree to the Privacy Policy</h4>
                     </div>
@@ -516,6 +595,7 @@ const Signup = () => {
                         name="Subscribe1"
                         id="Subscribe1"
                         onChange={handleInputChange}
+                        value={userInfo.Subscribe1}
                       />
                       <p>Yes</p>
                     </div>
@@ -525,6 +605,7 @@ const Signup = () => {
                         name="Subscribe2"
                         id="Subscribe2"
                         onChange={handleInputChange}
+                        value={userInfo.Subscribe2}
                       />
                       <p>No</p>
                     </div>
@@ -533,7 +614,12 @@ const Signup = () => {
                     <Button
                       title={"Sign Up"}
                       className={
-                        "rounded bg-main-font-color px-16 py-4 font-DMsans text-sm font-bold text-main-bg-color"
+                        "flex w-[200px] items-center justify-center gap-x-3 rounded bg-main-font-color py-4 font-DMsans text-base font-bold text-main-bg-color"
+                      }
+                      icon={
+                        <ImSpinner9
+                          className={`animate-spin text-2xl text-pink-500  ${loading ? "block" : "hidden"}`}
+                        />
                       }
                     />
                   </div>

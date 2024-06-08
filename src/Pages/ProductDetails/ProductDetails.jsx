@@ -6,13 +6,16 @@ import ProductDetailsTop from "../../Component/CommonComponent/ProductDetailsCom
 import Loading from "../../Component/CommonComponent/Loading/Loading";
 import RatingStar from "../../Component/CommonComponent/ProductDetailsComponent/RatingStar/RatingStar";
 import ProductInfo from "../../Component/CommonComponent/ProductDetailsComponent/ProductInfo/ProductInfo";
+import { useParams } from "react-router-dom";
+import { addToCart } from "../../Redux/AllSlice/AddToCartSlice/AddToCartSlice.js";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
   const [eachProduct, seteachProduct] = useState({});
+  const { productID } = useParams();
 
   useEffect(() => {
-    dispatch(fetchProduct("https://dummyjson.com/products/1"));
+    dispatch(fetchProduct(`https://dummyjson.com/products/${productID}`));
   }, []);
 
   const { data, status } = useSelector((state) => state.product);
@@ -23,6 +26,12 @@ const ProductDetails = () => {
     }
   }, [data.payload, status.payload]);
   console.log(eachProduct);
+
+  // handleAddToCart Functionality
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(eachProduct));
+  };
 
   return (
     <>
@@ -69,6 +78,7 @@ const ProductDetails = () => {
             <ProductInfo
               productstock={eachProduct.stock}
               productDescription={eachProduct.description}
+              onclick={handleAddToCart}
             />
           </div>
         </div>
