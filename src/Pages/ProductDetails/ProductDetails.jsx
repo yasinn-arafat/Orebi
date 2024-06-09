@@ -6,13 +6,14 @@ import ProductDetailsTop from "../../Component/CommonComponent/ProductDetailsCom
 import Loading from "../../Component/CommonComponent/Loading/Loading";
 import RatingStar from "../../Component/CommonComponent/ProductDetailsComponent/RatingStar/RatingStar";
 import ProductInfo from "../../Component/CommonComponent/ProductDetailsComponent/ProductInfo/ProductInfo";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { addToCart } from "../../Redux/AllSlice/AddToCartSlice/AddToCartSlice.js";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
   const [eachProduct, seteachProduct] = useState({});
   const { productID } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchProduct(`https://dummyjson.com/products/${productID}`));
