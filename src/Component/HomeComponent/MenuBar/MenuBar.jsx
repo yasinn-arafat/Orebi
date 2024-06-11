@@ -8,7 +8,10 @@ import { HiMiniBars3BottomLeft } from "react-icons/hi2";
 import { FaUser, FaCaretDown, FaCaretUp, FaShoppingCart } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
-import { getTotal } from "../../../Redux/AllSlice/AddToCartSlice/AddToCartSlice";
+import {
+  getTotal,
+  removeCartItem,
+} from "../../../Redux/AllSlice/AddToCartSlice/AddToCartSlice";
 
 const MenuBar = () => {
   const [showCatagories, setshowCatagories] = useState(false);
@@ -71,6 +74,12 @@ const MenuBar = () => {
   useEffect(() => {
     dispatch(getTotal());
   }, [dispatch, cartItem]);
+
+  // handleRemoveCartItem Functionality
+
+  const handleRemoveCartItem = (item) => {
+    dispatch(removeCartItem(item));
+  };
 
   return (
     <>
@@ -156,7 +165,7 @@ const MenuBar = () => {
 
               {showCart && (
                 <div
-                  className={`absolute top-[135px] z-10 w-full duration-100 ease-linear sm:top-[140px] sm:w-[360px] md:top-[152px] ${showCart ? "right-0 top-[135px] sm:right-[34px] sm:top-[140px] md:right-[50px] md:top-[152px] lg:right-[111px] xl:right-16" : null}`}
+                  className={`absolute top-[135px] z-10 w-full bg-main-bg-color duration-100 ease-linear sm:top-[140px] sm:w-[360px] md:top-[152px] ${showCart ? "right-0 top-[135px] sm:right-[34px] sm:top-[140px] md:right-[50px] md:top-[152px] lg:right-[111px] xl:right-16" : null}`}
                 >
                   <div className="h-[50vh] overflow-y-scroll scrollbar-thin scrollbar-track-secondery-bg-colorr scrollbar-thumb-main-font-color">
                     {cartItem?.map((item) => (
@@ -190,7 +199,10 @@ const MenuBar = () => {
                             <p>{item.price ? `$${item.price}` : "$0.00"}</p>
                           </div>
                         </div>
-                        <div className="cursor-pointer">
+                        <div
+                          className="cursor-pointer"
+                          onClick={() => handleRemoveCartItem(item)}
+                        >
                           <FaXmark />
                         </div>
                       </div>
