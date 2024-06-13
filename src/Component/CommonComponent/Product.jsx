@@ -1,7 +1,7 @@
 import React from "react";
-import Flex from "../CommonComponent/Flex";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { FaArrowsRotate } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Product = ({
   colorVarient,
@@ -12,6 +12,7 @@ const Product = ({
   colorVarientTitle,
   productDescrip,
   changeIcon,
+  productId,
 }) => {
   return (
     <>
@@ -20,35 +21,39 @@ const Product = ({
           <div className="group relative left-[11.5px] overflow-hidden md:left-10 lg:left-0">
             <div className="absolute left-5 top-5">{badge}</div>
             <picture>
-              <img src={image} alt={image} className="cursor-pointer" />
+              <Link to={`/product-details/${productId}`}>
+                <img src={image} alt={image} className="cursor-pointer" />
+              </Link>
             </picture>
 
             {/* -------- Overlay ------ */}
 
             <div className="absolute bottom-[-42%] left-0 flex w-full flex-col gap-y-2 bg-lime-100  px-7 py-6 opacity-0 duration-200 ease-linear group-hover:bottom-0 group-hover:opacity-100">
               <div className="cursor-pointer">
-                <Flex className={"justify-end gap-x-4"}>
+                <div className="flex items-center justify-end gap-x-4">
                   <h5 className="menu_list text-base">Add to List</h5>
                   <span>
                     <FaHeart />
                   </span>
-                </Flex>
+                </div>
               </div>
+
               <div className="cursor-pointer">
-                <Flex className={"justify-end gap-x-4"}>
+                <div className="flex items-center justify-end gap-x-4">
                   <h5 className="menu_list text-base">Compare</h5>
                   <span>
                     <FaArrowsRotate />
                   </span>
-                </Flex>
+                </div>
               </div>
+
               <div className="cursor-pointer">
-                <Flex className={"justify-end gap-x-4"}>
+                <div className="flex items-center justify-end gap-x-4">
                   <h5 className="menu_list text-base">Add to Cart</h5>
                   <span>
                     <FaShoppingCart />
                   </span>
-                </Flex>
+                </div>
               </div>
             </div>
 

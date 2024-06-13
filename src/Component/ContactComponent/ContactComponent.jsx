@@ -3,13 +3,15 @@ import CommonHeading from "../CommonComponent/CommonHeading/CommonHeading";
 import Button from "../CommonComponent/Button";
 import SignUpInput from "../CommonComponent/SignUpComponent/SignUpInput/SignUpInput";
 import { ImSpinner9 } from "react-icons/im";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../../Firebase/FirebaseConfig.js";
+import { FaCircleExclamation } from "react-icons/fa6";
 import {
   checkEmail,
   checkWordLimit,
   successMessage,
   errorMessage,
 } from "../../../Utils/Utils.js";
-import { FaCircleExclamation } from "react-icons/fa6";
 
 const ContactComponent = () => {
   const [loading, setloading] = useState(false);
@@ -78,20 +80,28 @@ const ContactComponent = () => {
       });
     } else {
       setloading(true);
-      successMessage("Everything is Ok", "top-right", 4000);
-
-      setinputValue({
-        ...inputValue,
-        Name: "",
-        Email: "",
-        Message: "",
-      });
-      setinputValueError({
-        ...inputValueError,
-        NameError: "",
-        EmailError: "",
-        MessageError: "",
-      });
+      addDoc(collection(db, "FormPosts"), inputValue)
+        .then((postCredential) => {
+          successMessage("form submitted successfully", "top-right", 4000);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          setloading(false);
+          setinputValue({
+            ...inputValue,
+            Name: "",
+            Email: "",
+            Message: "",
+          });
+          setinputValueError({
+            ...inputValueError,
+            NameError: "",
+            EmailError: "",
+            MessageError: "",
+          });
+        });
     }
   };
 
@@ -119,6 +129,7 @@ const ContactComponent = () => {
                     inputId={"Name"}
                     onChangeInput={handleInput}
                     className={`${inputValueError.NameError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                    value={inputValue.Name}
                   />
                   {inputValueError.NameError && (
                     <p className="font-DMsans text-sm font-normal text-red-500">
@@ -134,6 +145,7 @@ const ContactComponent = () => {
                     inputId={"Email"}
                     onChangeInput={handleInput}
                     className={`${inputValueError.EmailError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                    value={inputValue.Email}
                   />
                   {inputValueError.EmailError && (
                     <p className="font-DMsans text-sm font-normal text-red-500">
@@ -156,6 +168,7 @@ const ContactComponent = () => {
                         placeholder="Your message here"
                         className={`h-20 w-full border-b-2 pb-3 placeholder:font-DMsans placeholder:text-sm placeholder:font-normal placeholder:text-tertiary-font-color ${inputValueError.MessageError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
                         onChange={handleInput}
+                        value={inputValue.Message}
                       ></textarea>
                       {inputValueError.MessageError && (
                         <p className="font-DMsans text-sm font-normal text-red-500">

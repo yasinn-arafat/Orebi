@@ -50,7 +50,6 @@ const Checkout = () => {
       LastName,
       Country,
       HouseNumber,
-      ApartmentNumber,
       TownCity,
       PostCode,
       Phone,
@@ -175,6 +174,7 @@ const Checkout = () => {
         CompanyName: "",
         Country: "",
         HouseNumber: "",
+        ApartmentNumber: "",
         TownCity: "",
         County: "",
         PostCode: "",
@@ -250,6 +250,7 @@ const Checkout = () => {
                         inputId={"FirstName"}
                         onChangeInput={handleInputInfo}
                         className={`${userInfoError.FirstNameError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                        value={userInfo.FirstName}
                       />
                       {userInfoError.FirstNameError && (
                         <p className="font-DMsans text-sm font-normal text-red-500">
@@ -265,6 +266,7 @@ const Checkout = () => {
                         inputId={"LastName"}
                         onChangeInput={handleInputInfo}
                         className={`${userInfoError.LastNameError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                        value={userInfo.LastName}
                       />
                       {userInfoError.LastNameError && (
                         <p className="font-DMsans text-sm font-normal text-red-500">
@@ -280,6 +282,7 @@ const Checkout = () => {
                       placeholder={"Company Name"}
                       inputType={"text"}
                       inputId={"CompanyName"}
+                      value={userInfo.CompanyName}
                     />
                   </div>
 
@@ -292,6 +295,7 @@ const Checkout = () => {
                       id="Country"
                       onChange={handleInputInfo}
                       className={`w-full border-b-2 py-3 pb-3 font-DMsans text-sm font-normal text-tertiary-font-color ${userInfoError.CountryError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                      value={userInfo.Country}
                     >
                       <option value="">Please select</option>
                       <option value="Dhaka">Dhaka</option>
@@ -318,6 +322,7 @@ const Checkout = () => {
                       inputId={"HouseNumber"}
                       onChangeInput={handleInputInfo}
                       className={`${userInfoError.HouseNumberError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                      value={userInfo.HouseNumber}
                     />
                     {userInfoError.HouseNumberError && (
                       <p className="font-DMsans text-sm font-normal text-red-500">
@@ -329,6 +334,7 @@ const Checkout = () => {
                       inputType={"text"}
                       inputId={"ApartmentNumber"}
                       onChangeInput={handleInputInfo}
+                      value={userInfo.ApartmentNumber}
                     />
                   </div>
 
@@ -340,6 +346,7 @@ const Checkout = () => {
                       inputId={"TownCity"}
                       onChangeInput={handleInputInfo}
                       className={`${userInfoError.TownCityError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                      value={userInfo.TownCity}
                     />
                     {userInfoError.TownCityError && (
                       <p className="font-DMsans text-sm font-normal text-red-500">
@@ -355,6 +362,7 @@ const Checkout = () => {
                       inputType={"text"}
                       inputId={"County"}
                       onChangeInput={handleInputInfo}
+                      value={userInfo.County}
                     />
                   </div>
 
@@ -366,6 +374,7 @@ const Checkout = () => {
                       inputId={"PostCode"}
                       onChangeInput={handleInputInfo}
                       className={`${userInfoError.PostCodeError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                      value={userInfo.PostCode}
                     />
                     {userInfoError.PostCodeError && (
                       <p className="font-DMsans text-sm font-normal text-red-500">
@@ -382,6 +391,7 @@ const Checkout = () => {
                       inputId={"Phone"}
                       onChangeInput={handleInputInfo}
                       className={`${userInfoError.PhoneError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                      value={userInfo.Phone}
                     />
                     {userInfoError.PhoneError && (
                       <p className="font-DMsans text-sm font-normal text-red-500">
@@ -397,6 +407,7 @@ const Checkout = () => {
                       inputId={"Email"}
                       onChangeInput={handleInputInfo}
                       className={`${userInfoError.EmailError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
+                      value={userInfo.Email}
                     />
                     {userInfoError.EmailError && (
                       <p className="font-DMsans text-sm font-normal text-red-500">
@@ -507,6 +518,7 @@ const Checkout = () => {
                         id="Bank1"
                         onChange={handleInputInfo}
                         className={`${userInfoError.Bank1Error ? "border-red-500" : "border-[#F0F0F0]"}`}
+                        value={userInfo.Bank1}
                       />
 
                       <span className="font-DMsans text-base font-bold text-main-font-color">
@@ -536,6 +548,7 @@ const Checkout = () => {
                         id="Bank2"
                         onChange={handleInputInfo}
                         className={`${userInfoError.Bank2Error ? "border-red-500" : "border-[#F0F0F0]"}`}
+                        value={userInfo.Bank2}
                       />
 
                       <span className="font-DMsans text-base font-bold text-main-font-color">

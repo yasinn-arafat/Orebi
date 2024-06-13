@@ -70,6 +70,12 @@ const MenuBar = () => {
     setshowCart(false);
   };
 
+  // handleNavigateToCheckout Functionality
+  const handleNavigateToCheckout = () => {
+    navigate("/checkout");
+    setshowCart(false);
+  };
+
   // Call useEffect to update Total item & Total Amount
   useEffect(() => {
     dispatch(getTotal());
@@ -228,6 +234,7 @@ const MenuBar = () => {
                       />
                       <Button
                         title={"Checkout"}
+                        onClickFunction={handleNavigateToCheckout}
                         className={
                           "h-[50px] w-[148px] bg-main-font-color font-DMsans text-sm font-bold text-main-bg-color"
                         }

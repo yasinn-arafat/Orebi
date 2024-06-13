@@ -10,7 +10,6 @@ import {
 } from "../../../Redux/AllSlice/ProductSilce/ProductSilce";
 import { RiH1 } from "react-icons/ri";
 import Loading from "../Loading/Loading";
-import { Link } from "react-router-dom";
 
 const ShopRightBottom = () => {
   const dispatch = useDispatch();
@@ -79,35 +78,35 @@ const ShopRightBottom = () => {
                       className={`${gridLayout ? "relative w-full rounded-xl bg-gray-100" : null}`}
                       key={productItem.id}
                     >
-                      <Link to={`/product-details/${productItem.id}`}>
-                        <Product
-                          image={productItem.thumbnail}
-                          producttitle={productItem.title}
-                          productPrice={`$${productItem.price}`}
-                          colorVarient={true}
-                          productDescrip={productItem.description}
-                          changeIcon={gridLayout}
-                          colorVarientTitle={productItem.brand}
-                          badge={
-                            <Button
-                              className={
-                                "bg-main-font-color px-8 py-[9px] font-DMsans text-sm font-bold text-main-bg-color"
-                              }
-                              title={
-                                productItem.discountPercentage
-                                  ? `- $${productItem.discountPercentage}`
-                                  : productItem.stock === 0
-                                    ? "Stock Out"
-                                    : "New"
-                              }
-                            />
-                          }
-                        />
-                      </Link>
+                      <Product
+                        productId={productItem.id}
+                        image={productItem.thumbnail}
+                        producttitle={productItem.title}
+                        productPrice={`$${productItem.price}`}
+                        colorVarient={true}
+                        productDescrip={productItem.description}
+                        changeIcon={gridLayout}
+                        colorVarientTitle={productItem.brand}
+                        badge={
+                          <Button
+                            className={
+                              "bg-main-font-color px-8 py-[9px] font-DMsans text-sm font-bold text-main-bg-color"
+                            }
+                            title={
+                              productItem.discountPercentage
+                                ? `- $${productItem.discountPercentage}`
+                                : productItem.stock === 0
+                                  ? "Stock Out"
+                                  : "New"
+                            }
+                          />
+                        }
+                      />
                     </div>
                   ))}
               </div>
 
+              {/* Pagination */}
               <div className="mt-14">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-x-2">
@@ -147,6 +146,7 @@ const ShopRightBottom = () => {
                   </div>
                 </div>
               </div>
+              {/* Pagination */}
             </div>
           )
         )}
