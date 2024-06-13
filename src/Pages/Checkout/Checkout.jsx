@@ -26,7 +26,6 @@ const Checkout = () => {
     LastNameError: "",
     CountryError: "",
     HouseNumberError: "",
-    ApartmentNumberError: "",
     TownCityError: "",
     PostCodeError: "",
     PhoneError: "",
@@ -65,7 +64,6 @@ const Checkout = () => {
       LastNameError,
       CountryError,
       HouseNumberError,
-      ApartmentNumberError,
       TownCityError,
       PostCodeError,
       PhoneError,
@@ -100,15 +98,6 @@ const Checkout = () => {
         CountryError: "",
         HouseNumberError: "house name mis",
       });
-    } else if (!ApartmentNumber) {
-      setuserInfoError({
-        ...userInfoError,
-        FirstNameError: "",
-        LastNameError: "",
-        CountryError: "",
-        HouseNumberError: "",
-        ApartmentNumberError: "aprt name mis",
-      });
     } else if (!TownCity) {
       setuserInfoError({
         ...userInfoError,
@@ -116,7 +105,6 @@ const Checkout = () => {
         LastNameError: "",
         CountryError: "",
         HouseNumberError: "",
-        ApartmentNumberError: "",
         TownCityError: "town name mis",
       });
     } else if (!PostCode) {
@@ -126,7 +114,6 @@ const Checkout = () => {
         LastNameError: "",
         CountryError: "",
         HouseNumberError: "",
-        ApartmentNumberError: "",
         TownCityError: "",
         PostCodeError: "post name mis",
       });
@@ -137,7 +124,6 @@ const Checkout = () => {
         LastNameError: "",
         CountryError: "",
         HouseNumberError: "",
-        ApartmentNumberError: "",
         TownCityError: "",
         PostCodeError: "",
         PhoneError: "phn name mis",
@@ -149,7 +135,6 @@ const Checkout = () => {
         LastNameError: "",
         CountryError: "",
         HouseNumberError: "",
-        ApartmentNumberError: "",
         TownCityError: "",
         PostCodeError: "",
         PhoneError: "",
@@ -162,7 +147,6 @@ const Checkout = () => {
         LastNameError: "",
         CountryError: "",
         HouseNumberError: "",
-        ApartmentNumberError: "",
         TownCityError: "",
         PostCodeError: "",
         PhoneError: "",
@@ -176,7 +160,6 @@ const Checkout = () => {
         LastNameError: "",
         CountryError: "",
         HouseNumberError: "",
-        ApartmentNumberError: "",
         TownCityError: "",
         PostCodeError: "",
         PhoneError: "",
@@ -192,7 +175,6 @@ const Checkout = () => {
         CompanyName: "",
         Country: "",
         HouseNumber: "",
-        ApartmentNumber: "",
         TownCity: "",
         County: "",
         PostCode: "",
@@ -208,7 +190,6 @@ const Checkout = () => {
         LastNameError: "",
         CountryError: "",
         HouseNumberError: "",
-        ApartmentNumberError: "",
         TownCityError: "",
         PostCodeError: "",
         PhoneError: "",
@@ -310,7 +291,6 @@ const Checkout = () => {
                       name="Country"
                       id="Country"
                       onChange={handleInputInfo}
-                      // className="w-full border-b-2 pb-3 font-DMsans text-sm font-normal text-tertiary-font-color "
                       className={`w-full border-b-2 py-3 pb-3 font-DMsans text-sm font-normal text-tertiary-font-color ${userInfoError.CountryError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
                     >
                       <option value="">Please select</option>
@@ -349,13 +329,7 @@ const Checkout = () => {
                       inputType={"text"}
                       inputId={"ApartmentNumber"}
                       onChangeInput={handleInputInfo}
-                      className={`${userInfoError.ApartmentNumberError ? "border-b-red-500" : "border-b-[#F0F0F0]"}`}
                     />
-                    {userInfoError.ApartmentNumberError && (
-                      <p className="font-DMsans text-sm font-normal text-red-500">
-                        {userInfoError.ApartmentNumberError}
-                      </p>
-                    )}
                   </div>
 
                   <div className="w-[73%]">
