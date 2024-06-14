@@ -55,6 +55,9 @@ const Header = () => {
                 <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
                   <NavLink to={"/checkout"}>Journal</NavLink>
                 </li>
+                <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
+                  <NavLink to={"/login"}>Login</NavLink>
+                </li>
               </ul>
             </div>
 

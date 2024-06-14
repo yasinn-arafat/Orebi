@@ -1,12 +1,21 @@
 import React, { useState } from "react";
-import { toast, Bounce } from "react-toastify";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import SignUpTop from "../../Component/CommonComponent/SignUpComponent/SignUpTop/SignUpTop";
 import SignUpInput from "../../Component/CommonComponent/SignUpComponent/SignUpInput/SignUpInput";
 import Button from "../../Component/CommonComponent/Button";
 import { ImSpinner9 } from "react-icons/im";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../Firebase/FirebaseConfig.js";
+import { Link } from "react-router-dom";
+import {
+  successMessage,
+  errorMessage,
+  checkEmail,
+} from "../../../Utils/Utils.js";
 
 const Signup = () => {
   const auth = getAuth();
@@ -100,6 +109,11 @@ const Signup = () => {
         ...userInfoError,
         FirstNameError: "",
         EmailError: "Email missing",
+      });
+    } else if (!checkEmail(Email)) {
+      setuserInfoError({
+        ...userInfoError,
+        EmailError: "Email is not Valid or wrongs",
       });
     } else if (!Telephone) {
       setuserInfoError({
@@ -222,39 +236,29 @@ const Signup = () => {
       setloading(true);
       createUserWithEmailAndPassword(auth, userInfo.Email, userInfo.Password)
         .then((userCredential) => {
-          toast.success(`${userInfo.FirstName} Sign Up Done`, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-          });
+          successMessage(
+            `${userInfo.FirstName} Sign Up Done`,
+            "top-right",
+            "4000",
+          );
         })
         .then(() => {
           addDoc(collection(db, "users"), userInfo)
             .then((userData) => {
-              console.log(userData);
+              sendEmailVerification(auth.currentUser).then(() => {
+                successMessage(
+                  "Verification code sent to your email",
+                  "top-right",
+                  "4000",
+                );
+              });
             })
             .catch((err) => {
               console.log(err);
             });
         })
         .catch((err) => {
-          toast.error(`${err.code}`, {
-            position: "top-left",
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-          });
+          errorMessage(`${err.code}`, "top-left", "4000");
         })
         .finally(() => {
           setloading(false);
@@ -610,9 +614,10 @@ const Signup = () => {
                       <p>No</p>
                     </div>
                   </div>
-                  <div onClick={handleSignUp}>
+                  <div>
                     <Button
                       title={"Sign Up"}
+                      onClickFunction={handleSignUp}
                       className={
                         "flex w-[200px] items-center justify-center gap-x-3 rounded bg-main-font-color py-4 font-DMsans text-base font-bold text-main-bg-color"
                       }
@@ -622,6 +627,16 @@ const Signup = () => {
                         />
                       }
                     />
+                  </div>
+                  <div className="flex items-center gap-x-2">
+                    <p className="cursor-pointer font-DMsans text-base font-bold text-main-font-color">
+                      Already have an account?
+                    </p>
+                    <Link to={"/login"}>
+                      <h3 className="cursor-pointer font-DMsans text-lg font-bold text-blue-500 hover:underline">
+                        Log In
+                      </h3>
+                    </Link>
                   </div>
                 </div>
               </div>
