@@ -18,8 +18,17 @@ const MenuBar = () => {
   const [showUSer, setshowUser] = useState(false);
   const [showCart, setshowCart] = useState(false);
   const Menuref = useRef();
+  const CartRef = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  /**
+   * todo : Take all product from redux
+   */
+
+  const { cartItem, totalAmount, totalItem } = useSelector(
+    (state) => state.cart,
+  );
 
   // HandleCatagories Functionality
 
@@ -42,26 +51,6 @@ const MenuBar = () => {
     setshowUser(false);
     setshowCart(!showCart);
   };
-
-  // Menuref Funtionality
-
-  useEffect(() => {
-    window.addEventListener("click", (e) => {
-      if (!Menuref.current.contains(e.target)) {
-        setshowCatagories(false);
-        setshowUser(false);
-        setshowCart(false);
-      }
-    });
-  }, []);
-
-  /**
-   * todo : Take all product from redux
-   */
-
-  const { cartItem, totalAmount, totalItem } = useSelector(
-    (state) => state.cart,
-  );
 
   // handleNavigateToCart Functionality
 
@@ -86,6 +75,25 @@ const MenuBar = () => {
   const handleRemoveCartItem = (item) => {
     dispatch(removeCartItem(item));
   };
+
+  // Menuref Funtionality
+
+  useEffect(() => {
+    window.addEventListener("click", (event) => {
+      if (!Menuref.current.contains(event.target)) {
+        setshowCatagories(false);
+        setshowUser(false);
+        setshowCart(false);
+      }
+      if (CartRef.current.contains(event.target)) {
+        setshowCart(true);
+      }
+      // console.log(CartRef.current.contains(event.target));
+    });
+  }, []);
+
+  // CartRef Functionality
+  console.log(CartRef.current);
 
   return (
     <>
@@ -130,6 +138,7 @@ const MenuBar = () => {
             <Search placeholder={"Search Products"} />
 
             <Flex>
+              {/* user */}
               <div onClick={HandleUser} className="pr-5 sm:pr-10">
                 <Flex
                   className={`cursor-pointer gap-x-1 md:gap-x-2 ${showUSer && "text-blue-600"}`}
@@ -155,94 +164,103 @@ const MenuBar = () => {
                   </li>
                 </ul>
               )}
+              {/* user */}
 
-              <div
-                className={`relative cursor-pointer text-xl md:text-2xl ${showCart && "text-blue-600"}`}
-                onClick={Handlecart}
-              >
-                <FaShoppingCart />
-                <span className="absolute bottom-[16px] left-[16px] flex h-5 w-5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
-                  <span className="relative flex h-5 w-5 flex-col items-center justify-center rounded-full bg-sky-500 font-DMsans text-xs font-normal text-main-bg-color">
-                    {totalItem}
-                  </span>
-                </span>
-              </div>
+              {/* Cart */}
 
-              {showCart && (
+              <div>
                 <div
-                  className={`absolute top-[135px] z-10 w-full bg-main-bg-color duration-100 ease-linear sm:top-[140px] sm:w-[360px] md:top-[152px] ${showCart ? "right-0 top-[135px] sm:right-[34px] sm:top-[140px] md:right-[50px] md:top-[152px] lg:right-[111px] xl:right-16" : null}`}
+                  className={`relative cursor-pointer text-xl md:text-2xl ${showCart && "text-blue-600"}`}
+                  onClick={Handlecart}
                 >
-                  <div className="h-[50vh] overflow-y-scroll scrollbar-thin scrollbar-track-secondery-bg-colorr scrollbar-thumb-main-font-color">
-                    {cartItem?.map((item) => (
-                      <div
-                        className="flex items-center gap-x-[71px] bg-[#F5F5F3] p-5 sm:gap-x-[68px]"
-                        key={item.id}
-                      >
-                        <div className="flex items-center gap-x-5">
-                          <div className="h-[80px] w-[80px] bg-white object-cover">
-                            <picture>
-                              <img
-                                src={
-                                  item.thumbnail
-                                    ? item.thumbnail
-                                    : { SpecialProduct3 }
-                                }
-                                alt={
-                                  item.thumbnail
-                                    ? item.thumbnail
-                                    : { SpecialProduct3 }
-                                }
-                              />
-                            </picture>
-                          </div>
-                          <div className="font-DMsans text-sm font-bold text-main-font-color">
-                            <h3 className="pb-3">
-                              {item.title
-                                ? `${item.title.slice(0, 13)}..`
-                                : "Title"}
-                            </h3>
-                            <p>{item.price ? `$${item.price}` : "$0.00"}</p>
-                          </div>
-                        </div>
-                        <div
-                          className="cursor-pointer"
-                          onClick={() => handleRemoveCartItem(item)}
-                        >
-                          <FaXmark />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="bg-main-bg-color p-5">
-                    <div>
-                      <p className="pb-3 font-DMsans text-base font-bold text-tertiary-font-color">
-                        Subtotal:
-                        <span className="text-main-font-color">
-                          {totalAmount ? `$${totalAmount}` : "$0.00"}
-                        </span>
-                      </p>
-                    </div>
-                    <div className="flex justify-between">
-                      <Button
-                        title={"View Cart"}
-                        onClickFunction={handleNavigateToCart}
-                        className={
-                          "h-[49px] w-[147px] border border-[#2B2B2B] bg-transparent font-DMsans text-sm font-bold"
-                        }
-                      />
-                      <Button
-                        title={"Checkout"}
-                        onClickFunction={handleNavigateToCheckout}
-                        className={
-                          "h-[50px] w-[148px] bg-main-font-color font-DMsans text-sm font-bold text-main-bg-color"
-                        }
-                      />
-                    </div>
-                  </div>
+                  <FaShoppingCart />
+                  <span className="absolute bottom-[16px] left-[16px] flex h-5 w-5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+                    <span className="relative flex h-5 w-5 flex-col items-center justify-center rounded-full bg-sky-500 font-DMsans text-xs font-normal text-main-bg-color">
+                      {totalItem}
+                    </span>
+                  </span>
                 </div>
-              )}
+
+                {showCart && (
+                  <div
+                    className={`absolute top-[135px] z-10 w-full bg-[#F0F0F0] bg-main-bg-color duration-100 ease-linear sm:top-[140px] sm:w-[360px] md:top-[152px] ${showCart ? "right-0 top-[135px] sm:right-[34px] sm:top-[140px] md:right-[50px] md:top-[152px] lg:right-[111px] xl:right-16" : null}`}
+                  >
+                    <div
+                      ref={CartRef}
+                      className="h-[50vh] overflow-y-scroll scrollbar-thin scrollbar-track-secondery-bg-colorr scrollbar-thumb-main-font-color"
+                    >
+                      {cartItem?.map((item) => (
+                        <div
+                          className="flex items-center gap-x-[71px] bg-[#F5F5F3] p-5 sm:gap-x-[68px] lg:justify-between lg:gap-x-0"
+                          key={item.id}
+                        >
+                          <div className="flex items-center gap-x-5">
+                            <div className="h-[80px] w-[80px] bg-main-bg-color object-cover">
+                              <picture>
+                                <img
+                                  src={
+                                    item.thumbnail
+                                      ? item.thumbnail
+                                      : { SpecialProduct3 }
+                                  }
+                                  alt={
+                                    item.thumbnail
+                                      ? item.thumbnail
+                                      : { SpecialProduct3 }
+                                  }
+                                />
+                              </picture>
+                            </div>
+                            <div className="font-DMsans text-sm font-bold text-main-font-color">
+                              <h3 className="pb-3">
+                                {item.title
+                                  ? `${item.title.slice(0, 18)}..`
+                                  : "Title"}
+                              </h3>
+                              <p>{item.price ? `$${item.price}` : "$0.00"}</p>
+                            </div>
+                          </div>
+                          <div
+                            className="cursor-pointer"
+                            onClick={() => handleRemoveCartItem(item)}
+                          >
+                            <FaXmark />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="bg-main-bg-color p-5">
+                      <div>
+                        <p className="pb-3 font-DMsans text-base font-bold text-tertiary-font-color">
+                          Subtotal:
+                          <span className="text-main-font-color">
+                            {totalAmount ? `$${totalAmount}` : "$0.00"}
+                          </span>
+                        </p>
+                      </div>
+                      <div className="flex justify-between">
+                        <Button
+                          title={"View Cart"}
+                          onClickFunction={handleNavigateToCart}
+                          className={
+                            "h-[49px] w-[147px] border border-[#2B2B2B] bg-transparent font-DMsans text-sm font-bold"
+                          }
+                        />
+                        <Button
+                          title={"Checkout"}
+                          onClickFunction={handleNavigateToCheckout}
+                          className={
+                            "h-[50px] w-[148px] bg-main-font-color font-DMsans text-sm font-bold text-main-bg-color"
+                          }
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              {/* Cart */}
             </Flex>
           </Flex>
         </div>

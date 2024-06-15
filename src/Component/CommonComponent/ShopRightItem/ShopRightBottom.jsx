@@ -10,6 +10,7 @@ import {
 } from "../../../Redux/AllSlice/ProductSilce/ProductSilce";
 import { RiH1 } from "react-icons/ri";
 import Loading from "../Loading/Loading";
+import { addToCart } from "../../../Redux/AllSlice/AddToCartSlice/AddToCartSlice";
 
 const ShopRightBottom = () => {
   const dispatch = useDispatch();
@@ -57,6 +58,15 @@ const ShopRightBottom = () => {
     }
   };
 
+  /**
+   *  TODO: handleAddToCart Functionality
+   * @params : ({item})
+   */
+
+  const handleAddToCart = (productItem) => {
+    dispatch(addToCart(productItem));
+  };
+
   return (
     <>
       <div className="pt-11">
@@ -79,6 +89,7 @@ const ShopRightBottom = () => {
                       key={productItem.id}
                     >
                       <Product
+                        onAddToCart={() => handleAddToCart(productItem)}
                         productId={productItem.id}
                         image={productItem.thumbnail}
                         producttitle={productItem.title}

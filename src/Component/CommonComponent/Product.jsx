@@ -13,6 +13,7 @@ const Product = ({
   productDescrip,
   changeIcon,
   productId,
+  onAddToCart,
 }) => {
   return (
     <>
@@ -48,7 +49,10 @@ const Product = ({
               </div>
 
               <div className="cursor-pointer">
-                <div className="flex items-center justify-end gap-x-4">
+                <div
+                  className="flex items-center justify-end gap-x-4"
+                  onClick={onAddToCart}
+                >
                   <h5 className="menu_list text-base">Add to Cart</h5>
                   <span>
                     <FaShoppingCart />
