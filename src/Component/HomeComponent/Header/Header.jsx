@@ -44,22 +44,88 @@ const Header = () => {
                   </NavLink>
                 </li>
                 <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
-                  <NavLink to={"/shop"}>Shop</NavLink>
+                  <NavLink
+                    to={"/shop"}
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color"
+                        : isActive
+                          ? "menu_list w-full cursor-pointer py-3 font-bold text-green-500 hover:text-main-bg-color sm:py-0 sm:text-green-500 sm:hover:text-green-500"
+                          : ""
+                    }
+                  >
+                    Shop
+                  </NavLink>
                 </li>
                 <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
-                  <NavLink to={"/about"}>About</NavLink>
+                  <NavLink
+                    to={"/about"}
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color"
+                        : isActive
+                          ? "menu_list w-full cursor-pointer py-3 font-bold text-green-500 hover:text-main-bg-color sm:py-0 sm:text-green-500 sm:hover:text-green-500"
+                          : ""
+                    }
+                  >
+                    About
+                  </NavLink>
                 </li>
                 <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
-                  <NavLink to={"/contact"}>Contacts</NavLink>
+                  <NavLink
+                    to={"/contact"}
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color"
+                        : isActive
+                          ? "menu_list w-full cursor-pointer py-3 font-bold text-green-500 hover:text-main-bg-color sm:py-0 sm:text-green-500 sm:hover:text-green-500"
+                          : ""
+                    }
+                  >
+                    Contacts
+                  </NavLink>
                 </li>
                 <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
-                  <NavLink to={"/checkout"}>Journal</NavLink>
+                  <NavLink
+                    to={"/checkout"}
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color"
+                        : isActive
+                          ? "menu_list w-full cursor-pointer py-3 font-bold text-green-500 hover:text-main-bg-color sm:py-0 sm:text-green-500 sm:hover:text-green-500"
+                          : ""
+                    }
+                  >
+                    Journal
+                  </NavLink>
                 </li>
                 <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
-                  <NavLink to={"/sign-up"}>SignUp</NavLink>
+                  <NavLink
+                    to={"/sign-up"}
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color"
+                        : isActive
+                          ? "menu_list w-full cursor-pointer py-3 font-bold text-green-500 hover:text-main-bg-color sm:py-0 sm:text-green-500 sm:hover:text-green-500"
+                          : ""
+                    }
+                  >
+                    SignUp
+                  </NavLink>
                 </li>
                 <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
-                  <NavLink to={"/login"}>Login</NavLink>
+                  <NavLink
+                    to={"/login"}
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color"
+                        : isActive
+                          ? "menu_list w-full cursor-pointer py-3 font-bold text-green-500 hover:text-main-bg-color sm:py-0 sm:text-green-500 sm:hover:text-green-500"
+                          : ""
+                    }
+                  >
+                    Login
+                  </NavLink>
                 </li>
               </ul>
             </div>
