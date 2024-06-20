@@ -2,6 +2,7 @@ import React from "react";
 import FooterLogo from "../../../assets/FooterLogo.png";
 import FooterTop from "./FooterTop";
 import FooterBottom from "./FooterBottom";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -54,9 +55,9 @@ const Footer = () => {
 
             <div>
               <picture>
-                <a href="#">
+                <Link to={"/"}>
                   <img src={FooterLogo} alt={FooterLogo} />
-                </a>
+                </Link>
               </picture>
             </div>
           </div>

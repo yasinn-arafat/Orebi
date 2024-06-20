@@ -88,12 +88,9 @@ const MenuBar = () => {
       if (CartRef.current.contains(event.target)) {
         setshowCart(true);
       }
-      // console.log(CartRef.current.contains(event.target));
+      console.log(CartRef.current.contains(event.target));
     });
   }, []);
-
-  // CartRef Functionality
-  console.log(CartRef.current);
 
   return (
     <>
@@ -157,13 +154,14 @@ const MenuBar = () => {
                   className={`absolute divide-y divide-[#4b4949] border border-[#F0F0F0] text-center duration-500 ease-linear ${showUSer ? "right-0 top-[135px] z-10 w-full sm:right-[90px] sm:top-[140px] sm:w-[200px] md:right-[83px] md:top-[152px] xl:right-[140px]" : "right-[-100%]"}`}
                 >
                   <li className="cursor-pointer bg-[#2B2B2B] px-14 py-4 font-DMsans text-sm font-bold text-main-bg-color duration-150 ease-linear hover:bg-main-bg-color hover:text-[#2B2B2B]">
-                    <Link to={"/"}>My Account</Link>
+                    <Link to={"/my-account"}>My Account</Link>
                   </li>
                   <li className="cursor-pointer bg-[#2B2B2B] px-14 py-4 font-DMsans text-sm font-bold text-main-bg-color duration-150 ease-linear hover:bg-main-bg-color hover:text-[#2B2B2B]">
                     <Link to={"/"}>Log Out</Link>
                   </li>
                 </ul>
               )}
+
               {/* user */}
 
               {/* Cart */}

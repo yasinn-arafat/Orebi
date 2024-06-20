@@ -18,6 +18,7 @@ import Contact from "./Pages/Contact/Contact";
 import Login from "./Pages/Login/Login";
 import About from "./Pages/About/About";
 import Error from "./Pages/Error/Error";
+import MyAccount from "./Pages/MyAccount/MyAccount";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<Login />} />
       <Route path="/about" element={<About />} />
+      <Route path="/my-account" element={<MyAccount />} />
       <Route path="*" element={<Error />} />
     </Route>,
   ),

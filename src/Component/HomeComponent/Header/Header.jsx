@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../../../assets/Logo.png";
 import { FaBars, FaXmark } from "react-icons/fa6";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   const [isShow, setisShow] = useState(false);
@@ -18,11 +18,11 @@ const Header = () => {
         <div className="container">
           <div className="flex items-center justify-between">
             <div>
-              <a href="#">
+              <Link to={"/"}>
                 <picture>
                   <img src={Logo} alt={Logo} />
                 </picture>
-              </a>
+              </Link>
             </div>
 
             <div>
