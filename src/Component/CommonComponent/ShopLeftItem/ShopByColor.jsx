@@ -7,6 +7,7 @@ const ShopByColor = ({
   color,
   dropDownIs,
   dropDownExpandIs,
+  className,
 }) => {
   const [showShopColor, setshowShopColor] = useState(dropDownExpandIs);
 
@@ -17,7 +18,7 @@ const ShopByColor = ({
 
   return (
     <>
-      <div className="mt-8">
+      <div className={`mt-8 ${className}`}>
         <div
           className="mb-4 flex cursor-pointer items-center justify-between"
           onClick={HandleShopColor}

@@ -357,3 +357,13 @@ export const sortBy = [
   { id: 4, sortTitle: "Bag" },
   { id: 5, sortTitle: "Watch" },
 ];
+
+// MyAccountDshboard data
+
+export const MyAccountDshboard = [
+  { id: 1, title: "Others" },
+  { id: 2, title: "Donwloads" },
+  { id: 3, title: "Addresses" },
+  { id: 4, title: "Account details" },
+  { id: 5, title: "Logout" },
+];
