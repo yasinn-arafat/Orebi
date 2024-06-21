@@ -19,6 +19,7 @@ const ShopLeft = ({ className }) => {
       </div>
       <div>
         <ShopByColor
+          className={"mt-8"}
           categoryTitle={"Shop by Color"}
           shopCatagoryItem={shopByColor ? shopByColor : []}
           color={true}
@@ -28,6 +29,7 @@ const ShopLeft = ({ className }) => {
       </div>
       <div>
         <ShopByColor
+          className={"mt-8"}
           categoryTitle={"Shop by Brand"}
           shopCatagoryItem={shopByBrand ? shopByBrand : []}
           color={false}
@@ -37,6 +39,7 @@ const ShopLeft = ({ className }) => {
       </div>
       <div>
         <ShopByColor
+          className={"mt-8"}
           categoryTitle={"Shop by Price"}
           shopCatagoryItem={shopByPrice ? shopByPrice : []}
           color={false}

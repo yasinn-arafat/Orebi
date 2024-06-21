@@ -18,7 +18,7 @@ const ShopByColor = ({
 
   return (
     <>
-      <div className={`mt-8 ${className}`}>
+      <div className={className ? className : "mt-8"}>
         <div
           className="mb-4 flex cursor-pointer items-center justify-between"
           onClick={HandleShopColor}

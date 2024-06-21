@@ -64,6 +64,11 @@ const MenuBar = () => {
     navigate("/checkout");
     setshowCart(false);
   };
+  // handleNavigateToAccount Functionality
+  const handleNavigateToAccount = () => {
+    navigate("/my-account");
+    setshowUser(false);
+  };
 
   // Call useEffect to update Total item & Total Amount
   useEffect(() => {
@@ -154,18 +159,18 @@ const MenuBar = () => {
                   className={`absolute divide-y divide-[#4b4949] border border-[#F0F0F0] text-center duration-500 ease-linear ${showUSer ? "right-0 top-[135px] z-10 w-full sm:right-[90px] sm:top-[140px] sm:w-[200px] md:right-[83px] md:top-[152px] xl:right-[140px]" : "right-[-100%]"}`}
                 >
                   <li className="cursor-pointer bg-[#2B2B2B] px-14 py-4 font-DMsans text-sm font-bold text-main-bg-color duration-150 ease-linear hover:bg-main-bg-color hover:text-[#2B2B2B]">
-                    <Link to={"/my-account"}>My Account</Link>
+                    <button onClick={() => handleNavigateToAccount()}>
+                      My Account
+                    </button>
                   </li>
                   <li className="cursor-pointer bg-[#2B2B2B] px-14 py-4 font-DMsans text-sm font-bold text-main-bg-color duration-150 ease-linear hover:bg-main-bg-color hover:text-[#2B2B2B]">
                     <Link to={"/"}>Log Out</Link>
                   </li>
                 </ul>
               )}
-
               {/* user */}
 
               {/* Cart */}
-
               <div>
                 <div
                   className={`relative cursor-pointer text-xl md:text-2xl ${showCart && "text-blue-600"}`}
@@ -188,51 +193,59 @@ const MenuBar = () => {
                       ref={CartRef}
                       className="h-[50vh] overflow-y-scroll scrollbar-thin scrollbar-track-secondery-bg-colorr scrollbar-thumb-main-font-color"
                     >
-                      {cartItem?.map((item) => (
-                        <div
-                          className="flex items-center gap-x-[71px] bg-[#F5F5F3] p-5 sm:gap-x-[68px] lg:justify-between lg:gap-x-0"
-                          key={item.id}
-                        >
-                          <div className="flex items-center gap-x-5">
-                            <div className="h-[80px] w-[80px] bg-main-bg-color object-cover">
-                              <picture>
-                                <img
-                                  src={
-                                    item.thumbnail
-                                      ? item.thumbnail
-                                      : { SpecialProduct3 }
-                                  }
-                                  alt={
-                                    item.thumbnail
-                                      ? item.thumbnail
-                                      : { SpecialProduct3 }
-                                  }
-                                />
-                              </picture>
-                            </div>
-                            <div className="font-DMsans text-sm font-bold text-main-font-color">
-                              <h3 className="pb-3">
-                                {item.title
-                                  ? `${item.title.slice(0, 18)}..`
-                                  : "Title"}
-                              </h3>
-                              <p>{item.price ? `$${item.price}` : "$0.00"}</p>
-                            </div>
-                          </div>
+                      {cartItem?.length > 0 ? (
+                        cartItem?.map((item) => (
                           <div
-                            className="cursor-pointer"
-                            onClick={() => handleRemoveCartItem(item)}
+                            className="flex items-center gap-x-[71px] bg-[#F5F5F3] p-5 sm:gap-x-[68px] lg:justify-between lg:gap-x-0"
+                            key={item.id}
                           >
-                            <FaXmark />
+                            <div className="flex items-center gap-x-5">
+                              <div className="h-[80px] w-[80px] bg-main-bg-color object-cover">
+                                <picture>
+                                  <img
+                                    src={
+                                      item.thumbnail
+                                        ? item.thumbnail
+                                        : { SpecialProduct3 }
+                                    }
+                                    alt={
+                                      item.thumbnail
+                                        ? item.thumbnail
+                                        : { SpecialProduct3 }
+                                    }
+                                  />
+                                </picture>
+                              </div>
+                              <div className="font-DMsans text-sm font-bold text-main-font-color">
+                                <h3 className="pb-3">
+                                  {item.title
+                                    ? `${item.title.slice(0, 18)}..`
+                                    : "Title"}
+                                </h3>
+                                <p>{item.price ? `$${item.price}` : "$0.00"}</p>
+                              </div>
+                            </div>
+                            <div
+                              className="cursor-pointer"
+                              onClick={() => handleRemoveCartItem(item)}
+                            >
+                              <FaXmark />
+                            </div>
                           </div>
+                        ))
+                      ) : (
+                        <div className="mt-16">
+                          <h2 className="text-center font-DMsans text-lg font-bold text-main-font-color">
+                            No Products Added To Cart
+                          </h2>
                         </div>
-                      ))}
+                      )}
                     </div>
 
                     <div className="bg-main-bg-color p-5">
                       <div>
                         <p className="pb-3 font-DMsans text-base font-bold text-tertiary-font-color">
-                          Subtotal:
+                          Subtotal:{" "}
                           <span className="text-main-font-color">
                             {totalAmount ? `$${totalAmount}` : "$0.00"}
                           </span>
