@@ -99,6 +99,20 @@ const Header = () => {
                     Journal
                   </NavLink>
                 </li>
+                <li className="menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color">
+                  <NavLink
+                    to={"/sign-up"}
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "menu_list w-full cursor-pointer py-3 text-[#b3b3b3] hover:text-main-bg-color sm:py-0 sm:text-tertiary-font-color sm:hover:text-main-font-color"
+                        : isActive
+                          ? "menu_list w-full cursor-pointer py-3 font-bold text-green-500 hover:text-main-bg-color sm:py-0 sm:text-green-500 sm:hover:text-green-500"
+                          : ""
+                    }
+                  >
+                    Sign UP
+                  </NavLink>
+                </li>
               </ul>
             </div>
 
