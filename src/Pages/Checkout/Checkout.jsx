@@ -3,8 +3,13 @@ import CheckoutComponent from "../../Component/CheckoutComponent/CheckoutCompone
 import SignUpInput from "../../Component/CommonComponent/SignUpComponent/SignUpInput/SignUpInput";
 import Button from "../../Component/CommonComponent/Button";
 import { useSelector } from "react-redux";
+import {all} from "all-countries"
 
+
+console.log(all);
 const Checkout = () => {
+ 
+
   const [userInfo, setuserInfo] = useState({
     FirstName: "",
     LastName: "",
@@ -298,14 +303,9 @@ const Checkout = () => {
                       value={userInfo.Country}
                     >
                       <option value="">Please select</option>
-                      <option value="Dhaka">Dhaka</option>
-                      <option value="Rangpur">Rangpur</option>
-                      <option value="Rajshahi">Rajshahi</option>
-                      <option value="Chattogram">Chattogram</option>
-                      <option value="Khulna">Khulna</option>
-                      <option value="Barishal">Barishal</option>
-                      <option value="Sylhet">Sylhet</option>
-                      <option value="Mymensingh">Mymensingh</option>
+                      
+                      {all?.map((country)=>(<option value="">{country}</option>))}
+                      
                     </select>
                     {userInfoError.CountryError && (
                       <p className="font-DMsans text-sm font-normal text-red-500">

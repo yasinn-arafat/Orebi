@@ -464,14 +464,6 @@ const Signup = () => {
                         value={userInfo.Division}
                       >
                         <option value="">Please select</option>
-                        <option value="Dhaka">Dhaka</option>
-                        <option value="Rangpur">Rangpur</option>
-                        <option value="Rajshahi">Rajshahi</option>
-                        <option value="Chattogram">Chattogram</option>
-                        <option value="Khulna">Khulna</option>
-                        <option value="Barishal">Barishal</option>
-                        <option value="Sylhet">Sylhet</option>
-                        <option value="Mymensingh">Mymensingh</option>
                       </select>
                       {userInfoError.DivisionError && (
                         <p className="font-DMsans text-sm font-normal text-red-500">
@@ -492,17 +484,6 @@ const Signup = () => {
                         value={userInfo.District}
                       >
                         <option value="">Please select</option>
-                        <option value="Dhaka">Dhaka</option>
-                        <option value="Rangpur">Rangpur</option>
-                        <option value="Rajshahi">Rajshahi</option>
-                        <option value="Munshiganj">Munshiganj</option>
-                        <option value="Dinajpur">Dinajpur</option>
-                        <option value="Nilphamari">Nilphamari </option>
-                        <option value="Thakurgaon">Thakurgaon</option>
-                        <option value="Bhola">Bhola</option>
-                        <option value="Bogra ">Bogra </option>
-                        <option value="Joypurhat">Joypurhat</option>
-                        <option value="Faridpur">Faridpur</option>
                       </select>
                       {userInfoError.DistrictError && (
                         <p className="font-DMsans text-sm font-normal text-red-500">
