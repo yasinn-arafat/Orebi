@@ -463,7 +463,15 @@ const Signup = () => {
                         onChange={handleInputChange}
                         value={userInfo.Division}
                       >
-                        <option value="">Please select</option>
+                        <option value="Pleaseselect">Please select</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Rangpur">Rangpur</option>
+                        <option value="Sylhet">Sylhet</option>
+                        <option value="Mymensingh">Mymensingh</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                        <option value="Khulna">Khulna</option>
+                        <option value="Chattogram">Chattogram</option>
+                        <option value="Barishal">Barishal</option>
                       </select>
                       {userInfoError.DivisionError && (
                         <p className="font-DMsans text-sm font-normal text-red-500">
@@ -483,7 +491,15 @@ const Signup = () => {
                         onChange={handleInputChange}
                         value={userInfo.District}
                       >
-                        <option value="">Please select</option>
+                        <option value="n">Please select</option>
+                        <option value="Dinajpur">Dinajpur</option>
+                        <option value="Sirajgonj">Sirajgonj</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                        <option value="Nawabganj">Nawabganj</option>
+                        <option value="Tangail">Tangail</option>
+                        <option value="Sherpur">Sherpur</option>
+                        <option value="Shariatpur">Shariatpur</option>
+                        <option value="Jamalpur">Jamalpur</option>
                       </select>
                       {userInfoError.DistrictError && (
                         <p className="font-DMsans text-sm font-normal text-red-500">
