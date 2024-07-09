@@ -231,7 +231,8 @@ const Signup = () => {
         PasswordNotMatch: "",
         AgreementError: "Please Select Our Privacy Policy",
       });
-    } else {
+    }
+    {
       // Create User With Firebase createUserWithEmailAndPassword
       setloading(true);
       createUserWithEmailAndPassword(auth, userInfo.Email, userInfo.Password)
