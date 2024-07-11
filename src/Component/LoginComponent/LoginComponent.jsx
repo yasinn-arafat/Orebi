@@ -3,8 +3,12 @@ import CommonHeading from "../CommonComponent/CommonHeading/CommonHeading";
 import SignUpInput from "../CommonComponent/SignUpComponent/SignUpInput/SignUpInput";
 import Button from "../CommonComponent/Button";
 import { Link, useNavigate } from "react-router-dom";
-import { checkEmail, successMessage } from "../../../Utils/Utils";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { checkEmail, errorMessage, successMessage } from "../../../Utils/Utils";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 
 const LoginComponent = () => {
   const auth = getAuth();
@@ -55,11 +59,16 @@ const LoginComponent = () => {
     } else {
       signInWithEmailAndPassword(auth, Email, Password)
         .then((userLogInInfo) => {
-          console.log(userLogInInfo);
-          successMessage("Login Complete");
+          onAuthStateChanged(auth, (user) => {
+            if (user.emailVerified) {
+              navigate("/checkout");
+            } else {
+              errorMessage("Your eamil is not verified", "top-center");
+            }
+          });
         })
         .catch((error) => {
-          console.log(error.message);
+          console.log(error.code);
         })
         .finally(() => {
           setloginInfo({ Email: "", Password: "" });
