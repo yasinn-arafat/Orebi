@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BreadCrumb from "../CommonComponent/BreadCrumb/BreadCrumb";
 import CommonHeading from "../CommonComponent/CommonHeading/CommonHeading";
 import SignUpInput from "../../Component/CommonComponent/SignUpComponent/SignUpInput/SignUpInput";
 import Button from "../../Component/CommonComponent/Button";
@@ -9,7 +10,7 @@ const CheckoutComponent = ({ title }) => {
   const [userInfo, setuserInfo] = useState({
     FirstName: "",
     LastName: "",
-    CompanyName: "",
+    Company: "",
     Country: "",
     HouseNumber: "",
     ApartmentNumber: "",
@@ -277,11 +278,11 @@ const CheckoutComponent = ({ title }) => {
 
               <div className="w-[73%]">
                 <SignUpInput
-                  labelTitle={"Companye Name (optional)"}
+                  labelTitle={"Company Name (optional)"}
                   placeholder={"Company Name"}
                   inputType={"text"}
-                  inputId={"CompanyName"}
-                  value={userInfo.CompanyName}
+                  inputId={"Company"}
+                  value={userInfo.Company}
                 />
               </div>
 
@@ -299,7 +300,9 @@ const CheckoutComponent = ({ title }) => {
                   <option value="">Please select</option>
 
                   {all?.map((country) => (
-                    <option value="">{country}</option>
+                    <option value={country} key={country}>
+                      {country}
+                    </option>
                   ))}
                 </select>
                 {userInfoError.CountryError && (
