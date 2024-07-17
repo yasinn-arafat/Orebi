@@ -9,7 +9,7 @@ const Shop = () => {
       <div className="py-14">
         <div className="container">
           <div>
-            <CommonHeading title={"Products"} />
+            <CommonHeading className={"mb-0"} title={"Products"} />
           </div>
           <div className="flex pt-20">
             <ShopLeft className={"w-[23%]"} />
