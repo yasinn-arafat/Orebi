@@ -96,7 +96,7 @@ const Header = () => {
                           : ""
                     }
                   >
-                    Journal
+                    Checkout
                   </NavLink>
                 </li>
 
