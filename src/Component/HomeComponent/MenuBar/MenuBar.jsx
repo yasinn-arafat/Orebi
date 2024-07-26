@@ -12,6 +12,7 @@ import {
   getTotal,
   removeCartItem,
 } from "../../../Redux/AllSlice/AddToCartSlice/AddToCartSlice";
+import SearchResult from "../../CommonComponent/SearchResult/SearchResult";
 
 const MenuBar = () => {
   const [showCatagories, setshowCatagories] = useState(false);
@@ -21,6 +22,8 @@ const MenuBar = () => {
   const CartRef = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [allProducts, setallProducts] = useState([]);
+  const [searchResult, setsearchResult] = useState([]);
 
   /**
    * todo : Take all product from redux
@@ -37,28 +40,23 @@ const MenuBar = () => {
     setshowCart(false);
     setshowCatagories(!showCatagories);
   };
-
   // HandleUser Funtionality
   const HandleUser = () => {
     setshowCatagories(false);
     setshowCart(false);
     setshowUser(!showUSer);
   };
-
   // Handlecart Funtionality
   const Handlecart = () => {
     setshowCatagories(false);
     setshowUser(false);
     setshowCart(!showCart);
   };
-
   // handleNavigateToCart Functionality
-
   const handleNavigateToCart = () => {
     navigate("/cart");
     setshowCart(false);
   };
-
   // handleNavigateToCheckout Functionality
   const handleNavigateToCheckout = () => {
     navigate("/checkout");
@@ -69,14 +67,11 @@ const MenuBar = () => {
     navigate("/my-account");
     setshowUser(false);
   };
-
   // Call useEffect to update Total item & Total Amount
   useEffect(() => {
     dispatch(getTotal());
   }, [dispatch, cartItem]);
-
   // handleRemoveCartItem Functionality
-
   const handleRemoveCartItem = (item) => {
     dispatch(removeCartItem(item));
   };
@@ -97,9 +92,36 @@ const MenuBar = () => {
     });
   }, []);
 
+  /**
+   * todo: Take product data from store
+   */
+
+  const { data, status } = useSelector((state) => state.product);
+  console.log(data);
+
+  useEffect(() => {
+    if (status.payload === "IDLE") {
+      setallProducts(data.payload.products);
+    }
+  }, [data.payload, status.payload]);
+
+  // handleSearch Functionality
+
+  const handleSearch = (event) => {
+    const { value } = event.target;
+    if (value) {
+      const searchItem = allProducts.filter((product) =>
+        product.title.toLowerCase().includes(value.toLowerCase()),
+      );
+      setsearchResult(searchItem);
+    } else {
+      setsearchResult([]);
+    }
+  };
+  console.log(searchResult);
   return (
     <>
-      <div className="bg-secondery-bg-colorr px-4 py-4" ref={Menuref}>
+      <div className="relative bg-secondery-bg-colorr px-4 py-4" ref={Menuref}>
         <div className="container">
           <Flex className={"justify-between"}>
             <Flex className={"gap-x-3"}>
@@ -137,7 +159,10 @@ const MenuBar = () => {
               </p>
             </Flex>
 
-            <Search placeholder={"Search Products"} />
+            {/* Search */}
+            <Search placeholder={"Search Products"} onSearch={handleSearch} />
+            <SearchResult className={"absolute left-[578px] top-[81px]"} />
+            {/* Search */}
 
             <Flex>
               {/* user */}
