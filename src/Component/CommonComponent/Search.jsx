@@ -2,7 +2,7 @@ import React from "react";
 import Flex from "./Flex";
 import { FaSearch } from "react-icons/fa";
 
-const Search = ({ placeholder, className, onSearch }) => {
+const Search = ({ placeholder, className, onSearch, searchInput }) => {
   return (
     <>
       <Flex>
@@ -11,6 +11,7 @@ const Search = ({ placeholder, className, onSearch }) => {
             type="text"
             placeholder={placeholder}
             className={`placeholder:text[#C4C4C4] max-w-[600px] rounded-full py-3 pl-3 placeholder:font-DMsans placeholder:text-sm placeholder:font-normal sm:w-[400px] sm:pl-5 md:w-[500px] md:py-5 lg:w-[600px] ${className}`}
+            value={searchInput}
             onChange={onSearch}
           />
 

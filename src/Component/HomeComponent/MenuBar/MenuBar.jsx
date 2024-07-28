@@ -24,6 +24,7 @@ const MenuBar = () => {
   const dispatch = useDispatch();
   const [allProducts, setallProducts] = useState([]);
   const [searchResult, setsearchResult] = useState([]);
+  const [searchInput, setsearchInput] = useState("");
 
   /**
    * todo : Take all product from redux
@@ -97,7 +98,6 @@ const MenuBar = () => {
    */
 
   const { data, status } = useSelector((state) => state.product);
-  console.log(data);
 
   useEffect(() => {
     if (status.payload === "IDLE") {
@@ -109,16 +109,28 @@ const MenuBar = () => {
 
   const handleSearch = (event) => {
     const { value } = event.target;
-    if (value) {
+    setsearchInput(value);
+    if (searchInput) {
       const searchItem = allProducts.filter((product) =>
-        product.title.toLowerCase().includes(value.toLowerCase()),
+        product.title.toLowerCase().includes(searchInput.toLowerCase()),
       );
       setsearchResult(searchItem);
     } else {
       setsearchResult([]);
     }
   };
-  console.log(searchResult);
+
+  /**
+   * todo: handleGoToProduct Functionality
+   * @paraams : ({id})
+   */
+
+  const handleGoToProduct = (productId) => {
+    setsearchInput("");
+    setsearchResult([]);
+    navigate(`/product-details/${productId}`);
+  };
+
   return (
     <>
       <div className="relative bg-secondery-bg-colorr px-4 py-4" ref={Menuref}>
@@ -160,8 +172,21 @@ const MenuBar = () => {
             </Flex>
 
             {/* Search */}
-            <Search placeholder={"Search Products"} onSearch={handleSearch} />
-            <SearchResult className={"absolute left-[578px] top-[81px]"} />
+            <Search
+              placeholder={"Search Products"}
+              onSearch={handleSearch}
+              searchInput={searchInput}
+            />
+            {searchResult.length > 0 && (
+              <SearchResult
+                className={
+                  "absolute left-[50.7%] top-[81px] z-10 h-[50px] -translate-x-1/2"
+                }
+                searchResult={searchResult}
+                onToProduct={handleGoToProduct}
+              />
+            )}
+
             {/* Search */}
 
             <Flex>
