@@ -7,7 +7,7 @@ const SearchResult = ({ className, searchResult, onToProduct }) => {
         {searchResult?.map((product) => (
           <div
             onClick={() => onToProduct(product.id)}
-            className="h-full max-w-[600px] cursor-pointer rounded-sm border-b-2 border-b-gray-300 bg-gray-200 px-3 py-2 hover:bg-gray-400 lg:w-[550px]"
+            className="h-full w-[550px] max-w-[600px] cursor-pointer rounded-sm border-b-2 border-b-gray-300 bg-gray-200 px-3 py-2 hover:bg-gray-400"
             key={product.id}
           >
             <span>{product.title}</span>
